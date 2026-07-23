@@ -1,16 +1,16 @@
-# Gudukai4Life V3.2
+# Gudukai4Life V4
 
-Pagrindiniai pakeitimai:
-- atkurtas ankstesnis Hero šriftas ir gražus „&“;
-- padidinta Hero data;
+Įkelkite visus šio aplanko failus į GitHub repozitorijos šaknį ir pakeiskite senus.
+
+V4 pakeitimai:
+- atkurtas ankstesnis Hero šriftas ir „&“;
+- didesnė Hero data;
 - didesnis personalizuotas kreipinys;
 - vienoda lėta fade + 20 px slide-up animacija;
-- naujos žiedų, taurių, voko su širdele, rožės ir meškiuko ikonos;
-- padidinti „CEREMONIJA“ ir „VAKARINĖ DALIS“;
-- spalvota nuotrauka nebeiškraipoma ir nebekarpoma priklausomai nuo lango pločio;
+- naujos vientiso stiliaus žiedų, taurių, voko, rožės ir meškiuko ikonos;
+- didesni CEREMONIJA ir VAKARINĖ DALIS;
+- sutvarkytas desktop Hero crop;
+- antroji nuotrauka tapo panoraminė ir pereina į ivory foną;
 - pataisyta RSVP Netlify Forms logika;
-- bendroje testinėje nuorodoje galima pasirinkti 1–2 svečius;
-- Spotify ir #Gudukai4Life atsiranda tik po teigiamo RSVP;
+- Spotify ir #Gudukai4Life rodomi tik po teigiamo RSVP;
 - sumažinti tarpai ir nuramintas augintinių blokas.
-
-Įkelkite visus failus į GitHub repozitorijos šaknį, pakeisdami senus.

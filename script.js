@@ -125,15 +125,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const rsvpSuccess = document.getElementById("rsvpSuccess");
   const rsvpSuccessTitle = document.getElementById("rsvpSuccessTitle");
   const spotifyAfterRsvp = document.getElementById("spotifyAfterRsvp");
-  const heartBurst = document.getElementById("heartBurst");
 
   applyInvite();
   tick();
   setInterval(tick, 1000);
-  setTimeout(() => loader.classList.add("hide"), 1100);
 
-  openInvitation.addEventListener("click", () => {
-    invitation.scrollIntoView({ behavior: "smooth" });
+  if (loader) {
+    setTimeout(() => loader.classList.add("hide"), 1100);
+  }
+
+  openInvitation?.addEventListener("click", () => {
+    invitation?.scrollIntoView({ behavior: "smooth" });
   });
 
   const observer = new IntersectionObserver((entries) => {
@@ -145,28 +147,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  document.querySelectorAll(".reveal").forEach((element) => {
+    observer.observe(element);
+  });
 
   document.querySelectorAll('input[name="dalyvavimas"]').forEach((radio) => {
     radio.addEventListener("change", () => {
-      const isAttending = radio.checked && radio.value === "Taip, dalyvausiu";
-      attendanceDetails.hidden = !isAttending;
+      const attending = radio.checked && radio.value === "Taip, dalyvausiu";
+      attendanceDetails.hidden = !attending;
 
       attendanceDetails.querySelectorAll("input, select").forEach((element) => {
-        element.required = isAttending;
+        element.required = attending;
       });
 
-      if (isAttending) {
+      if (attending) {
         hearts(radio.closest(".attendance-card"));
       }
     });
   });
 
-  guestCount.addEventListener("change", (event) => {
+  guestCount?.addEventListener("change", (event) => {
     renderMeals(event.target.value);
   });
 
-  rsvpForm.addEventListener("submit", async (event) => {
+  rsvpForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const selectedAttendance = rsvpForm.querySelector(
@@ -178,28 +182,25 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    formStatus.textContent = "Siunčiame…";
     const submitButton = rsvpForm.querySelector(".submit-btn");
     submitButton.disabled = true;
+    formStatus.textContent = "Siunčiame…";
 
     try {
       const formData = new FormData(rsvpForm);
-      const encodedData = new URLSearchParams();
+      const encoded = new URLSearchParams();
+      formData.forEach((value, key) => encoded.append(key, String(value)));
 
-      formData.forEach((value, key) => {
-        encodedData.append(key, String(value));
-      });
-
-      const response = await fetch(window.location.pathname || "/", {
+      const response = await fetch("/", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
         },
-        body: encodedData.toString()
+        body: encoded.toString()
       });
 
       if (!response.ok) {
-        throw new Error(`Netlify form error: ${response.status}`);
+        throw new Error(`Form submission failed: ${response.status}`);
       }
 
       formStatus.textContent = "";
@@ -214,7 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selectedAttendance === "Taip, dalyvausiu") {
         rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
         spotifyAfterRsvp.hidden = false;
-
         setTimeout(() => {
           spotifyAfterRsvp.scrollIntoView({
             behavior: "smooth",

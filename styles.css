@@ -697,3 +697,219 @@ form{
     height:52px;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V4
+   ============================================================ */
+
+/* Keep the original V2 hero character */
+.hero h1{
+  font-family:"Italiana",serif !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+  line-height:.82 !important;
+}
+.hero h1 em{
+  font-family:"Playfair Display",serif !important;
+  font-style:italic;
+  font-weight:500;
+}
+.hero__date{
+  font-size:clamp(1.05rem,1.5vw,1.3rem);
+  letter-spacing:.30em;
+}
+
+/* Personalised salutation */
+.script{
+  font-size:clamp(2.25rem,4.4vw,3.65rem);
+  line-height:1.15;
+}
+
+/* Slow and consistent editorial animation */
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:
+    opacity 1.1s cubic-bezier(.22,1,.36,1),
+    transform 1.1s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Stronger desktop typography */
+.section-heading h2{
+  font-family:"Cormorant Garamond",serif !important;
+  font-size:clamp(3.1rem,4.5vw,5rem);
+  font-weight:500;
+  letter-spacing:.035em;
+}
+.venue__label{
+  margin:0 0 1rem;
+  color:var(--burgundy);
+  font:600 clamp(1.5rem,1.85vw,1.85rem)/1.2 "Cormorant Garamond",serif;
+  letter-spacing:.10em;
+}
+.venue__intro{
+  font-size:clamp(1.28rem,1.55vw,1.58rem);
+}
+.venue__time{
+  font-family:"Cormorant Garamond",serif !important;
+  font-size:clamp(4.25rem,5.5vw,5.9rem);
+  font-style:normal;
+  letter-spacing:-.02em;
+}
+.venue h3:not(.venue__label){
+  font-size:clamp(1.5rem,1.8vw,1.88rem);
+}
+.venue p,
+.venue a,
+.soft{
+  font-size:clamp(1rem,1.1vw,1.12rem);
+}
+
+/* Cohesive venue icons */
+.venue-icon{
+  width:92px;
+  height:74px;
+  margin:0 auto .75rem;
+  color:var(--burgundy);
+}
+.venue-icon svg{
+  width:100%;
+  height:100%;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2.15;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Cohesive information icons */
+.detail-icon{
+  width:68px;
+  height:68px;
+  color:var(--burgundy);
+}
+.detail-icon svg{
+  width:100%;
+  height:100%;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Hero background: controlled crops for each screen class */
+.hero{
+  background-position:center 41%;
+}
+@media(min-width:1200px){
+  .hero{
+    background-position:center 36%;
+  }
+}
+
+/* Second photo: full-width panorama with soft ivory fade */
+.editorial-photo{
+  position:relative;
+  width:100%;
+  max-width:none;
+  height:clamp(430px,58vw,720px);
+  margin:0;
+  overflow:hidden;
+}
+.editorial-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+  transform:none !important;
+  filter:saturate(.92) contrast(.97);
+}
+.editorial-photo::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:24%;
+  background:linear-gradient(to bottom,rgba(251,250,247,0),var(--ivory));
+  pointer-events:none;
+}
+
+/* RSVP and post-RSVP flow */
+.rsvp{
+  padding-bottom:clamp(3.5rem,6vw,5rem);
+}
+.form-status{
+  min-height:1.6rem;
+}
+.spotify-after-rsvp{
+  padding:clamp(3.5rem,6vw,5rem) 0;
+}
+.spotify-logo{
+  color:#666369;
+}
+.after-rsvp-hashtag{
+  margin-top:2rem;
+  color:var(--burgundy);
+  font-size:clamp(1.4rem,2.4vw,1.9rem);
+  font-weight:600;
+  letter-spacing:.08em;
+}
+
+/* Calm pet epilogue */
+.pets{
+  padding-top:clamp(2.8rem,4vw,4rem);
+}
+.pets img{
+  width:min(460px,86%);
+  filter:grayscale(18%) saturate(70%) contrast(.92) brightness(.96);
+  opacity:.94;
+}
+.pets__intro{
+  font-size:clamp(1.45rem,2.6vw,2.1rem) !important;
+}
+.pets h2{
+  font-family:"Cormorant Garamond",serif !important;
+  font-size:clamp(2.6rem,4.5vw,4.2rem);
+}
+
+/* Ensure desktop doesn't visually shrink typography */
+@media(min-width:1280px){
+  .wide{width:min(1240px,calc(100% - 5rem))}
+  .narrow{width:min(820px,calc(100% - 3rem))}
+  .venue-layout{gap:4rem}
+}
+
+@media(max-width:760px){
+  .hero{
+    background-position:56% center;
+  }
+  .hero__date{
+    font-size:1rem;
+    letter-spacing:.25em;
+  }
+  .script{
+    font-size:2.15rem;
+  }
+  .venue-icon{
+    width:78px;
+    height:64px;
+  }
+  .venue__label{
+    font-size:1.45rem;
+  }
+  .editorial-photo{
+    height:64svh;
+  }
+  .editorial-photo img{
+    object-position:51% 30%;
+  }
+  .detail-icon{
+    width:52px;
+    height:52px;
+  }
+}
