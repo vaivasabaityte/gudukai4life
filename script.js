@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rsvpSuccess = document.getElementById("rsvpSuccess");
   const rsvpSuccessTitle = document.getElementById("rsvpSuccessTitle");
   const spotifyAfterRsvp = document.getElementById("spotifyAfterRsvp");
+  const submitFrame = document.getElementById("netlifySubmitFrame");
 
   applyInvite();
   tick();
@@ -147,9 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll(".reveal").forEach((element) => {
-    observer.observe(element);
-  });
+  document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
   document.querySelectorAll('input[name="dalyvavimas"]').forEach((radio) => {
     radio.addEventListener("change", () => {
@@ -170,67 +169,60 @@ document.addEventListener("DOMContentLoaded", () => {
     renderMeals(event.target.value);
   });
 
-  rsvpForm?.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  let submitted = false;
+  let selectedAttendance = "";
 
-    const selectedAttendance = rsvpForm.querySelector(
+  rsvpForm?.addEventListener("submit", (event) => {
+    selectedAttendance = rsvpForm.querySelector(
       'input[name="dalyvavimas"]:checked'
-    )?.value;
+    )?.value || "";
 
     if (!selectedAttendance) {
+      event.preventDefault();
       formStatus.textContent = "Pasirinkite, ar dalyvausite.";
       return;
     }
 
-    const submitButton = rsvpForm.querySelector(".submit-btn");
-    submitButton.disabled = true;
     formStatus.textContent = "Siunčiame…";
+    const button = rsvpForm.querySelector(".submit-btn");
+    button.disabled = true;
+    submitted = true;
 
-    try {
-      const formData = new FormData(rsvpForm);
-      const encoded = new URLSearchParams();
-      formData.forEach((value, key) => encoded.append(key, String(value)));
+    // Native form POST continues into the hidden iframe.
+    // Fallback success UI is shown even if the iframe load event is delayed.
+    setTimeout(showSuccess, 1300);
+  });
 
-      const response = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-        },
-        body: encoded.toString()
+  submitFrame?.addEventListener("load", () => {
+    if (submitted) showSuccess();
+  });
+
+  function showSuccess() {
+    if (!submitted || rsvpSuccess.dataset.shown === "true") return;
+
+    rsvpSuccess.dataset.shown = "true";
+    formStatus.textContent = "";
+    rsvpSuccess.hidden = false;
+
+    rsvpForm
+      .querySelectorAll("fieldset, #attendanceDetails, .submit-btn")
+      .forEach((element) => {
+        element.hidden = true;
       });
 
-      if (!response.ok) {
-        throw new Error(`Form submission failed: ${response.status}`);
-      }
+    if (selectedAttendance === "Taip, dalyvausiu") {
+      rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
+      spotifyAfterRsvp.hidden = false;
 
-      formStatus.textContent = "";
-      rsvpSuccess.hidden = false;
-
-      rsvpForm
-        .querySelectorAll("fieldset, #attendanceDetails, .submit-btn")
-        .forEach((element) => {
-          element.hidden = true;
+      setTimeout(() => {
+        spotifyAfterRsvp.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
         });
-
-      if (selectedAttendance === "Taip, dalyvausiu") {
-        rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
-        spotifyAfterRsvp.hidden = false;
-        setTimeout(() => {
-          spotifyAfterRsvp.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        }, 450);
-      } else {
-        rsvpSuccessTitle.textContent = "Ačiū, kad pranešėte.";
-        spotifyAfterRsvp.hidden = true;
-      }
-    } catch (error) {
-      console.error(error);
-      formStatus.textContent =
-        "Nepavyko išsiųsti. Patikrinkite interneto ryšį ir pabandykite dar kartą.";
-    } finally {
-      submitButton.disabled = false;
+      }, 350);
+    } else {
+      rsvpSuccessTitle.textContent = "Ačiū, kad pranešėte.";
+      spotifyAfterRsvp.hidden = true;
     }
-  });
+  }
 });
