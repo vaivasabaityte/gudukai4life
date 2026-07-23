@@ -53,9 +53,10 @@ function renderMeals(count) {
 function applyInvite() {
   const key = slug();
   const invite = invitations[key] || invitations["brangus-sveciai"];
-  guestGreeting.textContent = invite.greeting;
-  inviteSlug.value = key;
-  guestNames.value = invite.names;
+  document.getElementById("guestGreeting").textContent = invite.greeting;
+  document.getElementById("inviteSlug").value = key;
+  document.getElementById("guestNames").value = invite.names;
+  const guestCount = document.getElementById("guestCount");
   guestCount.innerHTML = "";
   for (let i = 1; i <= invite.count; i++) {
     const option = document.createElement("option");
@@ -125,9 +126,16 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => invitation.scrollIntoView({behavior:"smooth"}), 350);
     setTimeout(() => transitionHeart.classList.remove("show"), 950);
   }
-  openInvitation.addEventListener("click", () => { musicModal.hidden = false; });
-  browseSilent.addEventListener("click", revealInvitation);
-  playSpotify.addEventListener("click", () => setTimeout(revealInvitation, 120));
+  const openInvitationButton = document.getElementById("openInvitation");
+  const musicModalElement = document.getElementById("musicModal");
+  const browseSilentButton = document.getElementById("browseSilent");
+  const playSpotifyLink = document.getElementById("playSpotify");
+
+  openInvitationButton.addEventListener("click", () => {
+    musicModalElement.hidden = false;
+  });
+  browseSilentButton.addEventListener("click", revealInvitation);
+  playSpotifyLink.addEventListener("click", () => setTimeout(revealInvitation, 120));
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => e.isIntersecting && e.target.classList.add("visible"));
@@ -150,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formStatus.textContent = "Siunčiame…";
     const button = rsvpForm.querySelector("button");
     button.disabled = true;
+    const selectedAttendance = rsvpForm.querySelector('input[name="dalyvavimas"]:checked')?.value || "";
     try {
       const data = new FormData(rsvpForm);
       const response = await fetch("/", {
@@ -158,9 +167,17 @@ document.addEventListener("DOMContentLoaded", () => {
         body:new URLSearchParams(data).toString()
       });
       if (!response.ok) throw new Error();
-      rsvpForm.reset();
-      attendanceDetails.hidden = true;
-      formStatus.textContent = "Ačiū! Jūsų atsakymas sėkmingai išsiųstas. ♥";
+      formStatus.textContent = "";
+      rsvpSuccess.hidden = false;
+      if (selectedAttendance === "Taip, dalyvausiu") {
+        rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
+        spotifyAfterRsvp.hidden = false;
+        setTimeout(() => spotifyAfterRsvp.scrollIntoView({behavior:"smooth", block:"start"}), 350);
+      } else {
+        rsvpSuccessTitle.textContent = "Ačiū, kad pranešėte.";
+        spotifyAfterRsvp.hidden = true;
+      }
+      rsvpForm.querySelectorAll("fieldset, #attendanceDetails, .submit-btn").forEach(el => el.hidden = true);
     } catch {
       formStatus.textContent = "Nepavyko išsiųsti. Pabandykite dar kartą.";
     } finally {
