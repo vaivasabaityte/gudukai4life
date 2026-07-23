@@ -17,7 +17,7 @@ const invitations = {
   "teta-vida": { greeting: "Brangi Teta Vida,", count: 1, names: "Teta Vida" },
   "martynas-ir-ramune": { greeting: "Mieli Martynai ir Ramune,", count: 2, names: "Martynas ir Ramunė" },
   "mylima-ingrida": { greeting: "Mylima Ingrida,", count: 1, names: "Ingrida" },
-  "fbc-bimbos": { greeting: "Mylimi mano FBC BIMBOS ♥", count: 4, names: "FBC BIMBOS" },
+  "fbc-bimbos": { greeting: "Mylimi mano FBC BIMBOS ♥", count: 6, names: "FBC BIMBOS" },
   "brangus-sveciai": { greeting: "Brangūs svečiai,", count: 1, names: "" }
 };
 
@@ -56,10 +56,29 @@ function applyInvite() {
   guestGreeting.textContent = invite.greeting;
   inviteSlug.value = key;
   guestNames.value = invite.names;
+  guestCount.innerHTML = "";
+  for (let i = 1; i <= invite.count; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    guestCount.appendChild(option);
+  }
   guestCount.value = invite.count;
   renderMeals(invite.count);
 }
 
+function ltForm(number, forms) {
+  const n = Math.abs(Number(number));
+  const lastTwo = n % 100;
+  const last = n % 10;
+  if (lastTwo >= 11 && lastTwo <= 19) return forms[2];
+  if (last === 1) return forms[0];
+  if (last >= 2 && last <= 9) return forms[1];
+  return forms[2];
+}
+function setUnit(id, number, forms) {
+  document.getElementById(id).closest("div").querySelector("span").textContent = ltForm(number, forms);
+}
 function tick() {
   const diff = weddingDate - new Date();
   if (diff <= 0) {
@@ -67,10 +86,15 @@ function tick() {
     weddingDayMessage.hidden = false;
     return;
   }
-  days.textContent = Math.floor(diff / 86400000);
-  hours.textContent = Math.floor(diff / 3600000 % 24);
-  minutes.textContent = Math.floor(diff / 60000 % 60);
-  seconds.textContent = Math.floor(diff / 1000 % 60);
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor(diff / 3600000 % 24);
+  const m = Math.floor(diff / 60000 % 60);
+  const s = Math.floor(diff / 1000 % 60);
+  days.textContent = d; hours.textContent = h; minutes.textContent = m; seconds.textContent = s;
+  setUnit("days", d, ["diena","dienos","dienų"]);
+  setUnit("hours", h, ["valanda","valandos","valandų"]);
+  setUnit("minutes", m, ["minutė","minutės","minučių"]);
+  setUnit("seconds", s, ["sekundė","sekundės","sekundžių"]);
 }
 
 function hearts(anchor) {
@@ -95,9 +119,15 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(tick, 1000);
   setTimeout(() => loader.classList.add("hide"), 1250);
 
-  openInvitation.addEventListener("click", () =>
-    invitation.scrollIntoView({behavior:"smooth"})
-  );
+  function revealInvitation() {
+    musicModal.hidden = true;
+    transitionHeart.classList.add("show");
+    setTimeout(() => invitation.scrollIntoView({behavior:"smooth"}), 350);
+    setTimeout(() => transitionHeart.classList.remove("show"), 950);
+  }
+  openInvitation.addEventListener("click", () => { musicModal.hidden = false; });
+  browseSilent.addEventListener("click", revealInvitation);
+  playSpotify.addEventListener("click", () => setTimeout(revealInvitation, 120));
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => e.isIntersecting && e.target.classList.add("visible"));
