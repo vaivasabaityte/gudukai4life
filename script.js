@@ -2,7 +2,7 @@ const weddingDate = new Date("2026-08-21T14:45:00+03:00");
 
 const invitations = {
   "mama-ir-tetis-sabaiciai": { greeting: "Mieli Mama ir Tėti Sabaičiai,", count: 2, names: "Mama ir Tėtis Sabaičiai" },
-  "agne": { greeting: "Brangi Agne,", count: 1, names: "Agnė" },
+  "agne": { greeting: "Miela Agne,", count: 1, names: "Agnė" },
   "mama-ir-tetis-gudukai": { greeting: "Mieli Mama ir Tėti Gudukai,", count: 2, names: "Mama ir Tėtis Gudukai" },
   "zana-ir-nerijus": { greeting: "Mieli Žana ir Nerijau,", count: 2, names: "Žana ir Nerijus" },
   "justinas-ir-valda": { greeting: "Mieli Justinai ir Valda,", count: 2, names: "Justinas ir Valda" },
@@ -18,7 +18,7 @@ const invitations = {
   "martynas-ir-ramune": { greeting: "Mieli Martynai ir Ramune,", count: 2, names: "Martynas ir Ramunė" },
   "mylima-ingrida": { greeting: "Mylima Ingrida,", count: 1, names: "Ingrida" },
   "fbc-bimbos": { greeting: "Mylimi mano FBC BIMBOS ♥", count: 6, names: "FBC BIMBOS" },
-  "brangus-sveciai": { greeting: "Brangūs svečiai,", count: 1, names: "" }
+  "brangus-sveciai": { greeting: "Brangūs svečiai,", count: 2, names: "" }
 };
 
 const meals = [
@@ -115,73 +115,122 @@ function hearts(anchor) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("loader");
+  const invitation = document.getElementById("invitation");
+  const openInvitation = document.getElementById("openInvitation");
+  const attendanceDetails = document.getElementById("attendanceDetails");
+  const guestCount = document.getElementById("guestCount");
+  const rsvpForm = document.getElementById("rsvpForm");
+  const formStatus = document.getElementById("formStatus");
+  const rsvpSuccess = document.getElementById("rsvpSuccess");
+  const rsvpSuccessTitle = document.getElementById("rsvpSuccessTitle");
+  const spotifyAfterRsvp = document.getElementById("spotifyAfterRsvp");
+  const heartBurst = document.getElementById("heartBurst");
+
   applyInvite();
   tick();
   setInterval(tick, 1000);
-  setTimeout(() => loader.classList.add("hide"), 1250);
+  setTimeout(() => loader.classList.add("hide"), 1100);
 
-  function revealInvitation() {
-    musicModal.hidden = true;
-    transitionHeart.classList.add("show");
-    setTimeout(() => invitation.scrollIntoView({behavior:"smooth"}), 350);
-    setTimeout(() => transitionHeart.classList.remove("show"), 950);
-  }
-  const openInvitationButton = document.getElementById("openInvitation");
-  const musicModalElement = document.getElementById("musicModal");
-  const browseSilentButton = document.getElementById("browseSilent");
-  const playSpotifyLink = document.getElementById("playSpotify");
-
-  openInvitationButton.addEventListener("click", () => {
-    musicModalElement.hidden = false;
+  openInvitation.addEventListener("click", () => {
+    invitation.scrollIntoView({ behavior: "smooth" });
   });
-  browseSilentButton.addEventListener("click", revealInvitation);
-  playSpotifyLink.addEventListener("click", () => setTimeout(revealInvitation, 120));
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting && e.target.classList.add("visible"));
-  }, {threshold:.12});
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-  document.querySelectorAll('input[name="dalyvavimas"]').forEach(radio => {
+  document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+  document.querySelectorAll('input[name="dalyvavimas"]').forEach((radio) => {
     radio.addEventListener("change", () => {
-      const yes = radio.checked && radio.value === "Taip, dalyvausiu";
-      attendanceDetails.hidden = !yes;
-      attendanceDetails.querySelectorAll("input,select").forEach(el => el.required = yes);
-      if (yes) hearts(radio.closest(".attendance-card"));
+      const isAttending = radio.checked && radio.value === "Taip, dalyvausiu";
+      attendanceDetails.hidden = !isAttending;
+
+      attendanceDetails.querySelectorAll("input, select").forEach((element) => {
+        element.required = isAttending;
+      });
+
+      if (isAttending) {
+        hearts(radio.closest(".attendance-card"));
+      }
     });
   });
 
-  guestCount.addEventListener("change", e => renderMeals(e.target.value));
+  guestCount.addEventListener("change", (event) => {
+    renderMeals(event.target.value);
+  });
 
-  rsvpForm.addEventListener("submit", async e => {
-    e.preventDefault();
+  rsvpForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const selectedAttendance = rsvpForm.querySelector(
+      'input[name="dalyvavimas"]:checked'
+    )?.value;
+
+    if (!selectedAttendance) {
+      formStatus.textContent = "Pasirinkite, ar dalyvausite.";
+      return;
+    }
+
     formStatus.textContent = "Siunčiame…";
-    const button = rsvpForm.querySelector("button");
-    button.disabled = true;
-    const selectedAttendance = rsvpForm.querySelector('input[name="dalyvavimas"]:checked')?.value || "";
+    const submitButton = rsvpForm.querySelector(".submit-btn");
+    submitButton.disabled = true;
+
     try {
-      const data = new FormData(rsvpForm);
-      const response = await fetch("/", {
-        method:"POST",
-        headers:{"Content-Type":"application/x-www-form-urlencoded"},
-        body:new URLSearchParams(data).toString()
+      const formData = new FormData(rsvpForm);
+      const encodedData = new URLSearchParams();
+
+      formData.forEach((value, key) => {
+        encodedData.append(key, String(value));
       });
-      if (!response.ok) throw new Error();
+
+      const response = await fetch(window.location.pathname || "/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        },
+        body: encodedData.toString()
+      });
+
+      if (!response.ok) {
+        throw new Error(`Netlify form error: ${response.status}`);
+      }
+
       formStatus.textContent = "";
       rsvpSuccess.hidden = false;
+
+      rsvpForm
+        .querySelectorAll("fieldset, #attendanceDetails, .submit-btn")
+        .forEach((element) => {
+          element.hidden = true;
+        });
+
       if (selectedAttendance === "Taip, dalyvausiu") {
         rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
         spotifyAfterRsvp.hidden = false;
-        setTimeout(() => spotifyAfterRsvp.scrollIntoView({behavior:"smooth", block:"start"}), 350);
+
+        setTimeout(() => {
+          spotifyAfterRsvp.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }, 450);
       } else {
         rsvpSuccessTitle.textContent = "Ačiū, kad pranešėte.";
         spotifyAfterRsvp.hidden = true;
       }
-      rsvpForm.querySelectorAll("fieldset, #attendanceDetails, .submit-btn").forEach(el => el.hidden = true);
-    } catch {
-      formStatus.textContent = "Nepavyko išsiųsti. Pabandykite dar kartą.";
+    } catch (error) {
+      console.error(error);
+      formStatus.textContent =
+        "Nepavyko išsiųsti. Patikrinkite interneto ryšį ir pabandykite dar kartą.";
     } finally {
-      button.disabled = false;
+      submitButton.disabled = false;
     }
   });
 });
