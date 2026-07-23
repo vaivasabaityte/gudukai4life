@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#6f1730">
+  <meta name="description" content="Vaivos ir Martyno vestuvių kvietimas">
+  <title>Vaiva & Martynas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__names">Vaiva <em>&</em> Martynas</div>
+  </div>
+
+  <header class="hero">
+    <div class="hero__veil"></div>
+    <div class="hero__content">
+      <p class="hero__greeting" id="guestGreeting">Mielieji svečiai,</p>
+      <h1><span>Vaiva</span><em>&</em><span>Martynas</span></h1>
+      <p class="hero__date">2026 · 08 · 21</p>
+      <button id="openInvitation" class="hero__cta">Atverti kvietimą</button>
+    </div>
+
+    <a class="hero__spotify" href="https://open.spotify.com/track/3K7Q9PHUWPTaknlbFPThn2?si=e37e3bb776af4ec5" target="_blank" rel="noopener">
+      <span>●</span> Celebration
+    </a>
+  </header>
+
+  <main id="invitation">
+    <section class="opening reveal">
+      <div class="narrow center">
+        <div class="ornament"><span></span><b>♥</b><span></span></div>
+        <p class="script">Mielieji svečiai,</p>
+        <p class="opening__text">Džiaugiamės galėdami Jus pakviesti į mūsų vestuvių šventę ir nekantraujame kartu švęsti mūsų naują gyvenimo etapą!</p>
+      </div>
+    </section>
+
+    <section class="countdown-section reveal">
+      <div class="wide center">
+        <p class="kicker">Iki šventės liko</p>
+        <div class="countdown" id="countdown">
+          <div><strong id="days">0</strong><span>dienų</span></div>
+          <div><strong id="hours">0</strong><span>valandų</span></div>
+          <div><strong id="minutes">0</strong><span>minučių</span></div>
+          <div><strong id="seconds">0</strong><span>sekundžių</span></div>
+        </div>
+        <p id="weddingDayMessage" class="wedding-day" hidden>Šiandien ta diena. Laukiame Jūsų. ♥</p>
+      </div>
+    </section>
+
+    <section class="venues reveal">
+      <div class="wide">
+        <div class="section-heading">
+          <div class="ornament"><span></span><b>♥</b><span></span></div>
+          <h2>Šventės vietos</h2>
+        </div>
+
+        <div class="venue-layout">
+          <article class="venue">
+            <p class="venue__label">Ceremonija</p>
+            <p class="venue__intro">Meilės įžadus vienas kitam tarsime</p>
+            <div class="venue__time">14:45</div>
+            <h3>Hilton Garden Inn Vilnius</h3>
+            <p>Stogo terasoje</p>
+            <p class="soft">Svečių prašome rinktis nuo 14:30</p>
+            <a href="https://maps.app.goo.gl/W9ym14ehVct1HkLU6" target="_blank" rel="noopener">Atidaryti Google Maps</a>
+          </article>
+
+          <div class="venue-divider"></div>
+
+          <article class="venue">
+            <p class="venue__label">Vakarinė dalis</p>
+            <p class="venue__intro">Naują mūsų istorijos puslapį atversime</p>
+            <div class="venue__time">18:30</div>
+            <h3>Vingio Istorijos</h3>
+            <p>Vingio parkas, Vilnius</p>
+            <p class="soft">Svečiai šventės vietoje laukiami nuo 17:30</p>
+            <a href="https://maps.app.goo.gl/onNtC5t6RJAvFmVA6" target="_blank" rel="noopener">Atidaryti Google Maps</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="editorial-photo reveal">
+      <img src="/assets/couple-color.jpg" alt="Vaiva ir Martynas">
+      <div class="editorial-photo__caption">Vaiva & Martynas</div>
+    </section>
+
+    <section class="details reveal">
+      <div class="wide">
+        <div class="section-heading">
+          <div class="ornament"><span></span><b>♥</b><span></span></div>
+          <h2>Sveikinimai ir dovanos</h2>
+        </div>
+
+        <div class="details-list">
+          <article>
+            <span>01</span>
+            <div>
+              <h3>Idėja dovanai</h3>
+              <p>Jūsų sveikinimus mielai sutalpinsime į vokelį.</p>
+            </div>
+          </article>
+          <article>
+            <span>02</span>
+            <div>
+              <h3>Vietoje gėlių</h3>
+              <p>Leiskime gėlėms žydėti. Vietoje jų galite mus pradžiuginti savo mėgstamu vynu ar putojančiu – ragaudami prisiminsime Jus. O gal mėgausimės drauge?</p>
+            </div>
+          </article>
+          <article>
+            <span>03</span>
+            <div>
+              <h3>Mažieji svečiai</h3>
+              <p>Santuokos ceremonijoje vaikai labai laukiami, o vakarinė šventės dalis skirta suaugusiesiems.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dress reveal">
+      <div class="narrow center">
+        <p class="kicker light">Aprangos kodas</p>
+        <h2>Šventinė vakarinė apranga</h2>
+        <p>Ši diena – apie džiaugsmą, laisvę ir nuoširdžias emocijas. Spalvų paletės neribojame, tačiau labai džiaugsimės matydami Jus pasipuošusius šventine vakarine apranga, o svarbiausia – su gera nuotaika!</p>
+      </div>
+    </section>
+
+    <section class="spotify reveal">
+      <div class="narrow center">
+        <div class="spotify__dot"></div>
+        <h2>Norite pasikurti šventinę nuotaiką dar prieš rugpjūčio 21-ąją?</h2>
+        <a href="https://open.spotify.com/playlist/0d4Uj4p8VOc2bb4Zk9XZzT?si=c19bb566c7774e2f" target="_blank" rel="noopener">
+          Atidaryti „VMG Wedding Party“
+        </a>
+      </div>
+    </section>
+
+    <section class="rsvp reveal" id="rsvp">
+      <div class="narrow">
+        <div class="section-heading">
+          <div class="ornament"><span></span><b>♥</b><span></span></div>
+          <h2>Patvirtinkite dalyvavimą</h2>
+          <p>Atsakymo ir maisto pasirinkimų laukiame iki <strong>2026 m. rugpjūčio 5 d.</strong></p>
+        </div>
+
+        <form name="vestuviu-rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="rsvpForm">
+          <input type="hidden" name="form-name" value="vestuviu-rsvp">
+          <input type="hidden" name="kvietimas" id="inviteSlug" value="brangus-sveciai">
+          <p class="hidden"><label>Nepildykite: <input name="bot-field"></label></p>
+
+          <fieldset>
+            <legend>Ar dalyvausite?</legend>
+            <div class="attendance-options">
+              <label class="attendance-card attendance-card--yes">
+                <input type="radio" name="dalyvavimas" value="Taip, dalyvausiu" required>
+                <span>VAŽIUOJAM KOLEKTYVAS!!!!</span>
+                <small>Taip, dalyvausiu</small>
+              </label>
+              <label class="attendance-card">
+                <input type="radio" name="dalyvavimas" value="Deja, dalyvauti negalėsiu" required>
+                <span>Deja, dalyvauti negalėsiu.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div id="attendanceDetails" hidden>
+            <div class="form-grid">
+              <label>Jūsų vardas (-ai)
+                <input type="text" name="vardai" id="guestNames" placeholder="Pvz., Agnė ir Tomas">
+              </label>
+              <label>Kiek žmonių dalyvaus?
+                <select name="dalyviu_skaicius" id="guestCount">
+                  <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                  <option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="meal">
+              <h3>Maisto pasirinkimas</h3>
+              <p>Kiekvienam dalyvaujančiam svečiui pasirinkite po vieną patiekalą.</p>
+              <div id="mealSelectors"></div>
+            </div>
+
+            <label>Ar turite alergijų ar kitų svarbių mitybos apribojimų?
+              <textarea name="alergijos" rows="4" placeholder="Jeigu neturite, laukelį palikite tuščią."></textarea>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Pateikti atsakymą</button>
+          <p id="formStatus" class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="pets reveal">
+      <div class="narrow center">
+        <img src="/assets/pets.jpg" alt="Vaivos ir Martyno augintiniai">
+        <p>Patvirtino šešiolika letenų ir keturios uodegos.</p>
+        <h2>Beliko sulaukti Jūsų!</h2>
+        <strong>#Gudukai4Life</strong>
+      </div>
+    </section>
+  </main>
+
+  <div class="heart-burst" id="heartBurst" aria-hidden="true"></div>
+  <script src="/script.js"></script>
+</body>
+</html>
