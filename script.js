@@ -129,9 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rsvpSuccess = document.getElementById("rsvpSuccess");
   const rsvpSuccessTitle = document.getElementById("rsvpSuccessTitle");
   const spotifyAfterRsvp = document.getElementById("spotifyAfterRsvp");
-  const submitFrame = document.getElementById("netlifySubmitFrame");
-
-  applyInvite();
+applyInvite();
   tick();
   setInterval(tick, 1000);
 
@@ -198,29 +196,49 @@ document.addEventListener("DOMContentLoaded", () => {
   let submitted = false;
   let selectedAttendance = "";
 
-  rsvpForm?.addEventListener("submit", (event) => {
+  rsvpForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
     selectedAttendance = rsvpForm.querySelector(
       'input[name="dalyvavimas"]:checked'
     )?.value || "";
 
     if (!selectedAttendance) {
-      event.preventDefault();
       formStatus.textContent = "Pasirinkite, ar dalyvausite.";
       return;
     }
 
-    formStatus.textContent = "Siunčiame…";
     const button = rsvpForm.querySelector(".submit-btn");
+    formStatus.textContent = "Siunčiame…";
     button.disabled = true;
-    submitted = true;
-    setTimeout(showSuccess, 1300);
+
+    try {
+      const formData = new FormData(rsvpForm);
+      formData.set("form-name", "vestuviu-rsvp");
+
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (!response.ok) {
+        throw new Error(`Netlify form submission failed: ${response.status}`);
+      }
+
+      submitted = true;
+      showSuccess();
+    } catch (error) {
+      console.error(error);
+      formStatus.textContent =
+        "Nepavyko išsiųsti. Patikrinkite interneto ryšį ir pabandykite dar kartą.";
+      button.disabled = false;
+    }
   });
 
-  submitFrame?.addEventListener("load", () => {
-    if (submitted) showSuccess();
-  });
-
-  function showSuccess() {
+function showSuccess() {
     if (!submitted || rsvpSuccess.dataset.shown === "true") return;
 
     rsvpSuccess.dataset.shown = "true";
