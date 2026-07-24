@@ -321,29 +321,13 @@ function waitForViewportToSettle(timeout = 450) {
   });
 }
 
-function preserveViewportDuringLayoutChange(anchorElement, mutateLayout) {
-  const beforeTop = anchorElement?.getBoundingClientRect().top ?? 0;
-  mutateLayout();
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      const afterTop = anchorElement?.getBoundingClientRect().top ?? beforeTop;
-      const delta = afterTop - beforeTop;
-
-      if (Math.abs(delta) > 1) {
-        window.scrollBy(0, delta);
-      }
-    });
-  });
-}
-
 async function showSuccess() {
     if (!submitted || rsvpSuccess.dataset.shown === "true") return;
 
     rsvpSuccess.dataset.shown = "true";
     formStatus.textContent = "";
 
-    // Close the mobile keyboard first and wait for the viewport to settle.
+    // Close the mobile keyboard first and let the viewport settle.
     const activeElement = document.activeElement;
     if (activeElement && typeof activeElement.blur === "function") {
       activeElement.blur();
@@ -359,20 +343,18 @@ async function showSuccess() {
       spotifyAfterRsvp.hidden = true;
     }
 
-    // Preserve what the guest is currently looking at while the long form
-    // is replaced by the compact confirmation card.
-    preserveViewportDuringLayoutChange(rsvpForm, () => {
-      rsvpSuccess.hidden = false;
+    // Replace the submitted form with the confirmation in the same place.
+    // No scrollTo, scrollBy or scrollIntoView is used.
+    rsvpSuccess.hidden = false;
 
-      rsvpForm
-        .querySelectorAll("fieldset, #attendanceDetails, .submit-btn")
-        .forEach((element) => {
-          element.hidden = true;
-        });
+    rsvpForm
+      .querySelectorAll("fieldset, #attendanceDetails, .submit-btn")
+      .forEach((element) => {
+        element.hidden = true;
+      });
 
-      rsvpForm.classList.add("is-submitted");
-      rsvpForm.style.minHeight = "";
-    });
+    rsvpForm.classList.add("is-submitted");
+    rsvpForm.style.minHeight = "";
 
     await nextPaint();
   }

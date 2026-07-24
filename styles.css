@@ -1847,3 +1847,62 @@ button:hover{
     margin-top:.75rem !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V19 — no automatic RSVP scrolling
+   ============================================================ */
+
+/* Keep the confirmation compact and visibly connected to Spotify. */
+#rsvpForm.is-submitted{
+  min-height:0 !important;
+}
+
+#rsvpSuccess{
+  max-width:640px !important;
+  margin:.75rem auto 0 !important;
+}
+
+#rsvpSuccess .success-card,
+#rsvpSuccess .success-message{
+  padding:1.25rem 1rem !important;
+}
+
+#rsvpSuccess::after{
+  margin:.65rem auto 0 !important;
+  font-size:.86rem !important;
+  line-height:1.4 !important;
+}
+
+#spotifyAfterRsvp{
+  margin-top:.65rem !important;
+}
+
+/* Disable browser scroll anchoring around the changing form area. */
+#rsvp,
+#rsvpForm,
+#rsvpSuccess,
+#spotifyAfterRsvp{
+  overflow-anchor:none !important;
+}
+
+@media(max-width:760px){
+  #rsvpSuccess{
+    width:calc(100% - .75rem) !important;
+    margin:.5rem auto 0 !important;
+  }
+
+  #rsvpSuccess .success-card,
+  #rsvpSuccess .success-message{
+    padding:1rem .75rem !important;
+  }
+
+  #rsvpSuccess::after{
+    margin:.55rem auto 0 !important;
+    font-size:.8rem !important;
+  }
+
+  #spotifyAfterRsvp{
+    margin-top:.5rem !important;
+  }
+}
