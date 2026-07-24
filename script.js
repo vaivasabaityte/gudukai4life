@@ -118,6 +118,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
   const invitation = document.getElementById("invitation");
   const openInvitation = document.getElementById("openInvitation");
+  const musicModal = document.getElementById("musicModal");
+  const withMusic = document.getElementById("withMusic");
+  const withoutMusic = document.getElementById("withoutMusic");
+  const celebrationAudio = document.getElementById("celebrationAudio");
+
   const attendanceDetails = document.getElementById("attendanceDetails");
   const guestCount = document.getElementById("guestCount");
   const rsvpForm = document.getElementById("rsvpForm");
@@ -136,8 +141,37 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   openInvitation?.addEventListener("click", () => {
-    invitation?.scrollIntoView({ behavior: "smooth" });
+    if (musicModal) {
+      musicModal.hidden = false;
+      requestAnimationFrame(() => musicModal.classList.add("is-open"));
+    } else {
+      invitation?.scrollIntoView({ behavior: "smooth" });
+    }
   });
+
+  withMusic?.addEventListener("click", async () => {
+    try {
+      celebrationAudio.volume = 0.55;
+      await celebrationAudio.play();
+    } catch (error) {
+      console.warn("Music playback was blocked by the browser.", error);
+    }
+    closeMusicModal();
+  });
+
+  withoutMusic?.addEventListener("click", () => {
+    celebrationAudio?.pause();
+    closeMusicModal();
+  });
+
+  function closeMusicModal() {
+    if (!musicModal) return;
+    musicModal.classList.remove("is-open");
+    setTimeout(() => {
+      musicModal.hidden = true;
+      invitation?.scrollIntoView({ behavior: "smooth" });
+    }, 260);
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -187,9 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = rsvpForm.querySelector(".submit-btn");
     button.disabled = true;
     submitted = true;
-
-    // Native form POST continues into the hidden iframe.
-    // Fallback success UI is shown even if the iframe load event is delayed.
     setTimeout(showSuccess, 1300);
   });
 
@@ -213,7 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (selectedAttendance === "Taip, dalyvausiu") {
       rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
       spotifyAfterRsvp.hidden = false;
-
       setTimeout(() => {
         spotifyAfterRsvp.scrollIntoView({
           behavior: "smooth",

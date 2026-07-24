@@ -1,12 +1,14 @@
-# Gudukai4Life V6
+# Gudukai4Life V7
 
 Pakeitimai:
-- virš žiedų pridėta tuščiavidurė širdelė;
-- perpieštos elegantiškesnės taurės;
-- padidinti ir išryškinti ceremonijos bei vakarinės dalies įžanginiai sakiniai;
-- antroji nuotrauka rodoma kaip mini hero: be rėmo, platesnė, su ivory fade;
-- naujas vientisas sveikinimų ikonų komplektas;
-- augintinių nuotraukai grąžintos gyvos spalvos ir kontrastas;
-- suvienodinti vertikalūs tarpai bei subtilūs hover efektai.
+- padidinta Hero data;
+- šiek tiek padidintas „Atverti kvietimą“ mygtukas;
+- pakeista taurių ikona;
+- žiedų ikonoje palikta maža tuščiavidurė širdelė;
+- padidinti „Meilės įžadus...“ ir „Naują mūsų istorijos puslapį...“ tekstai;
+- atnaujintos sveikinimų ikonėlės;
+- grąžintas pradinis pasirinkimas „Su muzika / Be muzikos“;
+- po teigiamo RSVP lieka Spotify blokas ir #Gudukai4Life;
+- išsaugoti ankstesni V6 pataisymai.
 
 Įkelkite visus failus į GitHub repozitorijos šaknį ir pakeiskite senus.
