@@ -1507,22 +1507,16 @@ button:hover{
 
 
 /* ============================================================
-   GUDUKAI4LIFE V11 FINAL — one professional icon family
+   GUDUKAI4LIFE V12 — custom icons based on approved visual
    ============================================================ */
 
 .details-list .detail-icon{
-  width:72px !important;
-  height:72px !important;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--burgundy);
-}
-
-.details-list .detail-icon > i{
-  display:block;
-  width:100%;
-  height:100%;
+  width:74px !important;
+  height:74px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:var(--burgundy) !important;
 }
 
 .details-list .detail-icon svg{
@@ -1530,17 +1524,27 @@ button:hover{
   height:100% !important;
   fill:none !important;
   stroke:currentColor !important;
-  stroke-width:1.65 !important;
+  stroke-width:1.7 !important;
   stroke-linecap:round !important;
   stroke-linejoin:round !important;
 }
 
-/* Override older nth-child sizing so all three are optically consistent. */
+.details-list .detail-icon .heart-cover{
+  fill:var(--ivory) !important;
+  stroke:currentColor !important;
+}
+
+.details-list .detail-icon .face-dot{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+
+/* Override older icon-size rules so the set stays visually consistent. */
 .details-list article:nth-child(1) .detail-icon,
 .details-list article:nth-child(2) .detail-icon,
 .details-list article:nth-child(3) .detail-icon{
-  width:72px !important;
-  height:72px !important;
+  width:74px !important;
+  height:74px !important;
 }
 
 @media(max-width:760px){

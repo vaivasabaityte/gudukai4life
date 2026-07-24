@@ -1,14 +1,11 @@
-# Gudukai4Life V11 Final
+# Gudukai4Life V12
 
 Bazė: vartotojos įkeltas V11 ZIP.
 
-Pakeista tik:
-- visos trys „Sveikinimų“ ikonėlės pakeistos į vieną profesionalią Lucide ikonų šeimą:
-  - mail-heart
-  - flower-2
-  - baby
-- visoms ikonoms pritaikytas identiškas dydis, linijų storis ir kampai;
-- paliktas sutartas maisto tekstas:
-  „Kiekvienam dalyvaujančiam svečiui pasirinkite po karštą patiekalą.“
+Pakeista tik „Sveikinimų“ ikonų sistema:
+- atkurtas vokas su širdele;
+- gėlė perpiešta pagal patvirtintą vizualą;
+- vaiko ikonėlė perpiešta plonesne, elegantiškesne linija;
+- pašalinta Lucide priklausomybė, todėl visos ikonos yra tiesiogiai projekte ir visada turi būti rodomos.
 
 Kiti projekto elementai nepakeisti.

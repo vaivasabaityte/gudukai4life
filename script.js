@@ -248,14 +248,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
-// Render the unified Lucide icon set used in the greetings section.
-window.addEventListener("load", () => {
-  if (window.lucide) {
-    window.lucide.createIcons({
-      attrs: {
-        "aria-hidden": "true"
-      }
-    });
-  }
-});
