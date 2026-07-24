@@ -1,11 +1,11 @@
-# Gudukai4Life V12
+# Gudukai4Life V13
 
-Bazė: vartotojos įkeltas V11 ZIP.
+Bazė: V12.
 
-Pakeista tik „Sveikinimų“ ikonų sistema:
-- atkurtas vokas su širdele;
-- gėlė perpiešta pagal patvirtintą vizualą;
-- vaiko ikonėlė perpiešta plonesne, elegantiškesne linija;
-- pašalinta Lucide priklausomybė, todėl visos ikonos yra tiesiogiai projekte ir visada turi būti rodomos.
+Pakeista tik:
+- gėlės lapeliai nuleisti žemiau ant stiebo;
+- gėlės forma supaprastinta, kad būtų aiškiai atpažįstama;
+- vaiko ikonėlė perpiešta iš naujo į švaresnį kūdikio veiduką;
+- gėlės ir vaiko ikonoms pritaikyta plonesnė linija, artimesnė žiedų ir taurių ikonoms.
 
-Kiti projekto elementai nepakeisti.
+Kiti V12 elementai nepakeisti.

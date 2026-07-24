@@ -1556,3 +1556,37 @@ button:hover{
     height:52px !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V13 — flower and baby icon correction
+   ============================================================ */
+
+/* Match the thinner line weight of rings and glasses. */
+.details-list article:nth-child(2) .detail-icon svg,
+.details-list article:nth-child(3) .detail-icon svg{
+  stroke-width:1.55 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+  fill:none !important;
+}
+
+/* Keep both icons optically balanced with the envelope. */
+.details-list article:nth-child(2) .detail-icon,
+.details-list article:nth-child(3) .detail-icon{
+  width:72px !important;
+  height:72px !important;
+}
+
+.details-list article:nth-child(3) .detail-icon .face-dot{
+  fill:currentColor !important;
+  stroke:none !important;
+}
+
+@media(max-width:760px){
+  .details-list article:nth-child(2) .detail-icon,
+  .details-list article:nth-child(3) .detail-icon{
+    width:52px !important;
+    height:52px !important;
+  }
+}
