@@ -1689,3 +1689,26 @@ button:hover{
     font-size:clamp(2rem,10vw,3rem) !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V15 — RSVP pause + hashtag typography
+   ============================================================ */
+
+.after-rsvp-hashtag{
+  font-family:"Inter",Arial,sans-serif !important;
+  font-size:clamp(2.35rem,5vw,4.5rem) !important;
+  font-weight:700 !important;
+  letter-spacing:.055em !important;
+  line-height:1.05 !important;
+  text-transform:uppercase !important;
+  color:var(--burgundy) !important;
+  text-align:center !important;
+}
+
+@media(max-width:760px){
+  .after-rsvp-hashtag{
+    font-size:clamp(2rem,10vw,3rem) !important;
+    letter-spacing:.035em !important;
+  }
+}

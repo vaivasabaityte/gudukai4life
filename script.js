@@ -238,6 +238,32 @@ applyInvite();
     }
   });
 
+
+function slowScrollTo(element, duration = 1100) {
+  if (!element) return;
+
+  const startY = window.scrollY;
+  const targetY = element.getBoundingClientRect().top + window.scrollY;
+  const distance = targetY - startY;
+  const startTime = performance.now();
+
+  const easeInOutCubic = (progress) =>
+    progress < 0.5
+      ? 4 * progress * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+  function step(currentTime) {
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
 function showSuccess() {
     if (!submitted || rsvpSuccess.dataset.shown === "true") return;
 
@@ -254,12 +280,11 @@ function showSuccess() {
     if (selectedAttendance === "Taip, dalyvausiu") {
       rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
       spotifyAfterRsvp.hidden = false;
+
+      // Paliekame patvirtinimą matomą, kad svečias spėtų perskaityti.
       setTimeout(() => {
-        spotifyAfterRsvp.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 350);
+        slowScrollTo(spotifyAfterRsvp, 1100);
+      }, 2200);
     } else {
       rsvpSuccessTitle.textContent = "Ačiū, kad pranešėte.";
       spotifyAfterRsvp.hidden = true;

@@ -1,21 +1,11 @@
-# Gudukai4Life V14
+# Gudukai4Life V15
 
-Bazė: vartotojos įkeltas `gudukai4life-v13-1.zip`.
+Bazė: vartotojos pateikta V14.
 
 Pakeista tik:
-- Spotify tekstas priverstinai rodomas dviem eilutėmis:
-  „Norite pasikurti šventinę nuotaiką“
-  „prieš rugpjūčio 21-ąją?“
-- mygtuko tekstas pakeistas į „Atidaryti grojaraštį“;
-- Spotify blokas subtiliai išskirtas pilkšvu fonu;
-- grojaraščio mygtukas pakeistas į oficialią Spotify žalią spalvą;
-- `#Gudukai4Life` padidintas ir centruotas;
-- po RSVP padidintas „AČIŪ!“;
-- Netlify Forms pataisyta:
-  - pridėta statinė deploy-time formos schema;
-  - užregistruoti visi dinaminiai maisto pasirinkimų laukai;
-  - forma siunčiama realiu POST į Netlify;
-  - sėkmės langas rodomas tik gavus sėkmingą serverio atsakymą;
-  - klaidos atveju rodomas aiškus pranešimas.
+- po sėkmingo RSVP „AČIŪ! / Lauksime Jūsų!“ paliekama matoma 2,2 sekundės;
+- po užlaikymo į Spotify bloką slenkama lėčiau, apie 1,1 sekundės;
+- `#Gudukai4Life` pakeistas į modernesnį sans-serif šriftą;
+- hashtag rodomas didžiosiomis raidėmis, storesniu svoriu ir su subtiliu tarpu tarp raidžių.
 
-Po įkėlimo į GitHub būtinas naujas Netlify deploy. Tada Netlify skiltyje Forms turi atsirasti forma `vestuviu-rsvp`.
+V14 Netlify Forms pataisymai ir visi kiti elementai palikti nepakeisti.
