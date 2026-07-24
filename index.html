@@ -24,9 +24,9 @@
 </svg>
 </div>
 <h2 id="musicModalTitle">Norite atverti kvietimą su muzika?</h2>
-<p>Galite pasirinkti žiūrėti su mūsų daina arba be garso.</p>
+<p>Pasirinkus muziką, daina bus atidaryta Spotify, o kvietimas atsivers šiame lange.</p>
 <div class="music-modal__actions">
-<button class="music-choice music-choice--primary" id="withMusic" type="button">Su muzika</button>
+<a class="music-choice music-choice--primary music-choice-link" href="https://open.spotify.com/track/3K7Q9PHUWPTaknlbFPThn2?si=7839cc185d924f7c" id="withMusic" rel="noopener noreferrer" target="_blank">Su muzika</a>
 <button class="music-choice" id="withoutMusic" type="button">Be muzikos</button>
 </div>
 </div>
@@ -71,10 +71,14 @@
 <div class="venue-layout">
 <article class="venue">
 <div aria-hidden="true" class="venue-icon venue-icon--rings">
-<svg viewbox="0 0 120 104">
-<circle cx="44" cy="67" r="27"></circle>
-<circle cx="76" cy="67" r="27"></circle>
-<path d="M60 27c7-10 20-4 17 6-2 7-17 17-17 17S45 40 43 33c-3-10 10-16 17-6z"></path>
+<svg viewbox="0 0 120 112">
+<circle cx="43" cy="72" r="28"></circle>
+<circle cx="77" cy="72" r="28"></circle>
+<path d="M60 15
+                 C55 7 42 9 42 20
+                 C42 29 60 42 60 42
+                 C60 42 78 29 78 20
+                 C78 9 65 7 60 15Z"></path>
 </svg>
 </div>
 <h3 class="venue__label">CEREMONIJA</h3>
@@ -88,14 +92,23 @@
 <div class="venue-divider"></div>
 <article class="venue">
 <div aria-hidden="true" class="venue-icon venue-icon--glasses">
-<svg viewbox="0 0 120 104">
-<path d="M18 18h33l-4 30c-1 11-7 18-16 18s-15-7-16-18z"></path>
-<path d="M69 18h33l4 30c1 11-5 18-14 18s-15-7-16-18z"></path>
-<path d="M20 37c10 4 20 4 29 0"></path>
-<path d="M71 37c10 4 20 4 29 0"></path>
-<path d="M31 66v17M92 66v17M20 85h22M81 85h22"></path>
-<path d="M51 34l18 6"></path>
-<path d="M58 10l3-7M70 10V3M82 13l6-6"></path>
+<svg viewbox="0 0 126 112">
+<g transform="rotate(12 38 51)">
+<path d="M22 17h31l-2 27
+                   c-1 13-7 22-15 22
+                   s-14-9-15-22z"></path>
+<path d="M23 39c9 4 18 4 27 0"></path>
+<path d="M36 66v24M25 92h22"></path>
+</g>
+<g transform="rotate(-12 88 51)">
+<path d="M73 17h31l-2 27
+                   c-1 13-7 22-15 22
+                   s-14-9-15-22z"></path>
+<path d="M74 39c9 4 18 4 27 0"></path>
+<path d="M87 66v24M76 92h22"></path>
+</g>
+<path d="M54 33l18 0"></path>
+<path d="M58 11V2M70 12l4-8M47 14l-5-7"></path>
 </svg>
 </div>
 <h3 class="venue__label">VAKARINĖ DALIS</h3>
@@ -120,34 +133,76 @@
 </div>
 <div class="details-list">
 <article>
-<div aria-hidden="true" class="detail-icon"><svg viewbox="0 0 96 76">
-<rect height="50" rx="7" width="80" x="8" y="16"></rect>
-<path d="M11 20l37 28 37-28"></path>
-<path d="M12 63l26-23M84 63L58 40"></path>
-<path d="M48 31c6-9 18-4 15 5-2 7-15 15-15 15S35 43 33 36c-3-9 9-14 15-5z"></path>
+<div aria-hidden="true" class="detail-icon"><svg viewbox="0 0 112 84">
+<rect height="60" rx="8" width="96" x="8" y="13"></rect>
+<path d="M12 18L56 52L100 18"></path>
+<path d="M11 69L43 42M101 69L69 42"></path>
+<path class="icon-fill-soft" d="M56 35
+               C51 27 39 29 39 39
+               C39 48 56 59 56 59
+               C56 59 73 48 73 39
+               C73 29 61 27 56 35Z"></path>
 </svg></div>
 <div><h3>Idėja dovanai</h3><p>Jūsų sveikinimus mielai sutalpinsime į vokelį.</p></div>
 </article>
 <article>
-<div aria-hidden="true" class="detail-icon"><svg viewbox="0 0 96 102">
-<path d="M47 94c0-21 3-40 9-57"></path>
-<path d="M55 70c16 0 28-9 34-24-16-1-29 7-34 24z"></path>
-<path d="M46 80c-15 0-27-8-31-23 15 0 27 7 31 23z"></path>
-<path d="M55 40c-13-1-23-10-23-21 11-6 22 0 27 10 5-10 17-15 28-8 0 11-9 21-23 21"></path>
-<path d="M59 30c-7-11-23-10-28 2 6 11 20 16 28 9 9 7 22 2 28-9-5-12-21-13-28-2z"></path>
+<div aria-hidden="true" class="detail-icon"><svg viewbox="0 0 112 132">
+<path d="M54 123C58 102 61 82 63 60"></path>
+<path d="M60 88C76 87 89 78 98 63C80 61 67 69 60 88Z"></path>
+<path d="M56 101C39 99 25 90 18 74C35 73 49 82 56 101Z"></path>
+<path d="M57 61
+               C42 61 28 53 25 40
+               C23 28 34 17 47 19
+               C52 11 65 9 73 16
+               C87 14 98 24 96 38
+               C94 53 78 62 57 61Z"></path>
+<path d="M45 23
+               C51 16 63 15 69 22
+               C62 22 56 25 52 31
+               C47 30 44 27 45 23Z"></path>
+<path d="M52 31
+               C57 22 71 21 78 29
+               C72 29 66 32 62 38
+               C57 37 53 35 52 31Z"></path>
+<path d="M39 31
+               C45 26 54 27 59 33
+               C53 34 48 38 46 44
+               C40 42 37 37 39 31Z"></path>
+<path d="M62 38
+               C69 30 82 32 87 42
+               C80 41 73 45 69 51
+               C64 48 61 43 62 38Z"></path>
+<path d="M46 44
+               C52 37 63 37 69 44
+               C64 50 57 54 49 53
+               C46 50 45 47 46 44Z"></path>
+<path d="M31 42
+               C38 37 47 40 51 47
+               C45 52 39 54 32 51
+               C29 48 29 45 31 42Z"></path>
+<path d="M69 51
+               C76 44 87 46 91 55
+               C84 61 75 63 67 59
+               C66 56 67 53 69 51Z"></path>
 </svg></div>
 <div><h3>Vietoje gėlių</h3><p>Leiskime gėlėms žydėti. Vietoje jų galite mus pradžiuginti savo mėgstamu vynu ar putojančiu – ragaudami prisiminsime Jus. O gal mėgausimės drauge?</p></div>
 </article>
 <article>
-<div aria-hidden="true" class="detail-icon"><svg viewbox="0 0 96 90">
-<circle cx="26" cy="24" r="12"></circle>
-<circle cx="70" cy="24" r="12"></circle>
-<circle cx="48" cy="49" r="30"></circle>
-<ellipse cx="48" cy="56" rx="12" ry="10"></ellipse>
-<path d="M38 42h.1M58 42h.1"></path>
-<path d="M43 58c3 3 7 3 10 0"></path>
-<path d="M48 51v5"></path>
-<path d="M29 27c4-3 8-4 12-3M55 24c4-1 8 0 12 3"></path>
+<div aria-hidden="true" class="detail-icon"><svg viewbox="0 0 112 100">
+<circle cx="25" cy="25" r="15"></circle>
+<circle cx="87" cy="25" r="15"></circle>
+<circle cx="56" cy="51" r="38"></circle>
+<path class="icon-fill" d="M18 25c4-6 11-7 16-2"></path>
+<path class="icon-fill" d="M78 23c5-5 12-4 16 2"></path>
+<path d="M38 47c2-5 7-8 12-8"></path>
+<path d="M62 39c5 0 10 3 12 8"></path>
+<ellipse cx="56" cy="62" rx="17" ry="14"></ellipse>
+<path class="icon-fill" d="M49 57c4-4 10-4 14 0
+               c-1 5-4 7-7 7
+               s-6-2-7-7Z"></path>
+<path d="M56 64v5"></path>
+<path d="M56 69c-5 7-12 7-16 1"></path>
+<path d="M56 69c5 7 12 7 16 1"></path>
 </svg></div>
 <div><h3>Mažieji svečiai</h3><p>Santuokos ceremonijoje vaikai labai laukiami, o vakarinė šventės dalis skirta suaugusiesiems.</p></div>
 </article>
@@ -237,5 +292,5 @@
 </main>
 <div aria-hidden="true" class="heart-burst" id="heartBurst"></div>
 <script src="/script.js"></script>
-<audio id="celebrationAudio" loop="" preload="auto" src="https://p.scdn.co/mp3-preview/4e9cf20bb3492b7406c8f88b89fb9d5bb3fbd807"></audio></body>
+</body>
 </html>

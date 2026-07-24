@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const musicModal = document.getElementById("musicModal");
   const withMusic = document.getElementById("withMusic");
   const withoutMusic = document.getElementById("withoutMusic");
-  const celebrationAudio = document.getElementById("celebrationAudio");
 
   const attendanceDetails = document.getElementById("attendanceDetails");
   const guestCount = document.getElementById("guestCount");
@@ -149,18 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  withMusic?.addEventListener("click", async () => {
-    try {
-      celebrationAudio.volume = 0.55;
-      await celebrationAudio.play();
-    } catch (error) {
-      console.warn("Music playback was blocked by the browser.", error);
-    }
+  withMusic?.addEventListener("click", () => {
     closeMusicModal();
   });
 
   withoutMusic?.addEventListener("click", () => {
-    celebrationAudio?.pause();
     closeMusicModal();
   });
 
