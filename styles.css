@@ -908,3 +908,126 @@ form{
     background-position:58% 24% !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V6
+   ============================================================ */
+
+/* Venue subheads: emotionally important, therefore clearly readable. */
+.venue__intro{
+  font-size:clamp(1.25rem,1.55vw,1.5rem) !important;
+  line-height:1.45;
+  font-weight:500;
+  margin-bottom:clamp(1.8rem,2.5vw,2.6rem);
+}
+.venue__label{
+  margin-bottom:clamp(1.25rem,1.8vw,1.8rem) !important;
+}
+.venue__time{
+  margin-top:0 !important;
+}
+
+/* Cleaner, invitation-like icons */
+.venue-icon{
+  width:96px !important;
+  height:78px !important;
+}
+.venue-icon svg,
+.detail-icon svg{
+  stroke-width:1.85 !important;
+}
+
+/* Second photo: seamless mini-hero, no visible frame. */
+.editorial-photo{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  aspect-ratio:16/8.5 !important;
+  overflow:hidden;
+}
+.editorial-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 40% !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  filter:saturate(.98) contrast(.99) !important;
+}
+.editorial-photo::after{
+  height:24% !important;
+  background:linear-gradient(to bottom,rgba(251,250,247,0),var(--ivory)) !important;
+}
+
+/* Congratulation icons: one coherent visual system. */
+.details-list article{
+  grid-template-columns:92px minmax(0,1fr) !important;
+  gap:2rem !important;
+}
+.detail-icon{
+  width:72px !important;
+  height:72px !important;
+}
+
+/* Pets: restore life and colour. */
+.pets img{
+  filter:none !important;
+  opacity:1 !important;
+  border-radius:12px;
+  box-shadow:0 16px 40px rgba(57,37,45,.10);
+}
+.pets__grid{
+  gap:3px !important;
+}
+
+/* Consistent section rhythm. */
+.section,
+.venue-section,
+.details,
+.dress,
+.rsvp,
+.spotify-after-rsvp,
+.pets{
+  padding-top:clamp(4.5rem,7vw,7rem);
+  padding-bottom:clamp(4.5rem,7vw,7rem);
+}
+
+/* Refined interactions. */
+a,
+button{
+  transition:color .28s ease,border-color .28s ease,background-color .28s ease,opacity .28s ease,transform .28s ease;
+}
+a:hover,
+button:hover{
+  transform:translateY(-1px);
+}
+
+@media(max-width:760px){
+  .venue__intro{
+    font-size:1.15rem !important;
+    margin-bottom:1.8rem;
+  }
+  .venue-icon{
+    width:82px !important;
+    height:68px !important;
+  }
+  .editorial-photo{
+    aspect-ratio:4/5 !important;
+  }
+  .editorial-photo img{
+    object-position:center 38% !important;
+  }
+  .details-list article{
+    grid-template-columns:56px minmax(0,1fr) !important;
+    gap:1rem !important;
+  }
+  .detail-icon{
+    width:50px !important;
+    height:50px !important;
+  }
+}
