@@ -1,15 +1,12 @@
-# Gudukai4Life V8
+# Gudukai4Life V9
 
-Pakeitimai:
-- ikonėlės perpieštos pagal pateiktą vestuvių kvietimo maketą;
-- žiedai su atskirai viršuje esančia tuščiavidure širdele;
-- ilgos, pasvirusios šampano taurės;
-- naujas vokas, detalesnė rožė ir teddy bear;
-- padidinta Hero data;
-- padidinti ŠVENTĖS EIGOS emociniai tekstai;
-- spalvota nuotrauka pateikiama su subtiliu rėmeliu ir fade tik apačioje;
-- augintinių nuotrauka palikta ryški ir gyva;
-- išsaugotas pradinis „Su muzika / Be muzikos“ pasirinkimas bei Spotify nuoroda;
-- išsaugota RSVP logika ir po teigiamo atsakymo rodomas Spotify blokas su #Gudukai4Life.
+Pakeista tik tai, kas buvo sutarta:
+- pašalintas rėmas aplink antrąją spalvotą nuotrauką;
+- paliktas fade tik apačioje;
+- padidinti CEREMONIJA ir VAKARINĖ DALIS;
+- sumažintas tarpas tarp įžanginio teksto ir laiko;
+- taurėms pašalinta jungiamoji linija;
+- atnaujintos voko, rožės ir meškiuko ikonėlės vienodu, ramesniu outline stiliumi;
+- kiti V8 elementai palikti nepakeisti.
 
 Įkelkite visus failus į GitHub repozitorijos šaknį ir pakeiskite senus.
