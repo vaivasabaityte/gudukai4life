@@ -1,23 +1,24 @@
 const weddingDate = new Date("2026-08-21T14:45:00+03:00");
 
 const invitations = {
-  "mama-ir-tetis-sabaiciai": { greeting: "Mieli Mama ir Tėti Sabaičiai,", count: 2, names: "Mama ir Tėtis Sabaičiai" },
-  "agne": { greeting: "Miela Agne,", count: 1, names: "Agnė" },
-  "mama-ir-tetis-gudukai": { greeting: "Mieli Mama ir Tėti Gudukai,", count: 2, names: "Mama ir Tėtis Gudukai" },
-  "zana-ir-nerijus": { greeting: "Mieli Žana ir Nerijau,", count: 2, names: "Žana ir Nerijus" },
-  "justinas-ir-valda": { greeting: "Mieli Justinai ir Valda,", count: 2, names: "Justinas ir Valda" },
-  "aiste-ir-tomas": { greeting: "Mieli Aiste ir Tomai,", count: 2, names: "Aistė ir Tomas" },
-  "benas-ir-deimante": { greeting: "Mieli Benai ir Deimante,", count: 2, names: "Benas ir Deimantė" },
-  "eivinas-ir-juste": { greeting: "Mieli Eivinai ir Juste,", count: 2, names: "Eivinas ir Justė" },
-  "matas-ir-austeja": { greeting: "Mieli Matai ir Austėja,", count: 2, names: "Matas ir Austėja" },
-  "darius-ir-elvyra": { greeting: "Mieli Dariau ir Elvyra,", count: 2, names: "Darius ir Elvyra" },
-  "egidijus-ir-inga": { greeting: "Mieli Egidijau ir Inga,", count: 2, names: "Egidijus ir Inga" },
-  "brigita-ir-dziugas": { greeting: "Mieli Brigita ir Džiugai,", count: 2, names: "Brigita ir Džiugas" },
-  "laurynas-ir-emilija": { greeting: "Mieli Laurynai ir Emilija,", count: 2, names: "Laurynas ir Emilija" },
-  "teta-vida": { greeting: "Brangi Teta Vida,", count: 1, names: "Teta Vida" },
-  "martynas-ir-ramune": { greeting: "Mieli Martynai ir Ramune,", count: 2, names: "Martynas ir Ramunė" },
-  "mylima-ingrida": { greeting: "Mylima Ingrida,", count: 1, names: "Ingrida" },
-  "fbc-bimbos": { greeting: "Mylimi mano FBC BIMBOS ♥", count: 6, names: "FBC BIMBOS" },
+  "aiste-tomas": { greeting: "Mylimi Aiste ir Tomai,", count: 2, names: "Aistė ir Tomas" },
+  "dziugas-brigita": { greeting: "Džiugai ir Brigita,", count: 2, names: "Džiugas ir Brigita" },
+  "tevai": { greeting: "Mylimi Tėveliai,", count: 2, names: "Tėveliai" },
+  "fbc": { greeting: "Mylimi FBC Bimbos,", count: 6, names: "FBC Bimbos" },
+  "nerijus-zana": { greeting: "Nerijau ir Žana,", count: 2, names: "Nerijus ir Žana" },
+  "mantas": { greeting: "Mantai,", count: 1, names: "Mantas" },
+  "agne-simona": { greeting: "Mielosios Agne ir Simona,", count: 2, names: "Agnė ir Simona" },
+  "ingrida": { greeting: "Miela Ingrida,", count: 1, names: "Ingrida" },
+  "valda-justinas": { greeting: "Valda ir Justinai,", count: 2, names: "Valda ir Justinas" },
+  "ramune-martynas": { greeting: "Ramune ir Martynai,", count: 2, names: "Ramunė ir Martynas" },
+  "teta-vida": { greeting: "Mylima Teta Vida,", count: 1, names: "Teta Vida" },
+  "emilija-laurynas": { greeting: "Emilija ir Laurynai,", count: 2, names: "Emilija ir Laurynas" },
+  "darius-elvyra": { greeting: "Dariau ir Elvyra,", count: 2, names: "Darius ir Elvyra" },
+  "benas-deimante": { greeting: "Benai ir Deimante,", count: 2, names: "Benas ir Deimantė" },
+  "eivinas-juste": { greeting: "Eivinai ir Juste,", count: 2, names: "Eivinas ir Justė" },
+  "goda-edvinas": { greeting: "Goda ir Edvinai,", count: 2, names: "Goda ir Edvinas" },
+  "matas-austeja": { greeting: "Matai ir Austėja,", count: 2, names: "Matas ir Austėja" },
+  "egidijus-inga": { greeting: "Egidijau ir Inga,", count: 2, names: "Egidijus ir Inga" },
   "brangus-sveciai": { greeting: "Brangūs svečiai,", count: 2, names: "" }
 };
 
@@ -28,10 +29,22 @@ const meals = [
 ];
 
 function slug() {
-  const path = decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, "")).toLowerCase();
-  return (path || "brangus-sveciai")
+  const params = new URLSearchParams(window.location.search);
+  const queryGuest = params.get("guest");
+
+  // V21 primary format: ?guest=aiste-tomas
+  // Legacy path links remain supported as a fallback.
+  const rawValue = queryGuest ||
+    decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, "")) ||
+    "brangus-sveciai";
+
+  return rawValue
+    .trim()
+    .toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^\w-]+/g, "-");
+    .replace(/[^\w-]+/g, "-")
+    .replace(/^-+|-+$/g, "") ||
+    "brangus-sveciai";
 }
 
 function renderMeals(count) {
@@ -51,8 +64,9 @@ function renderMeals(count) {
 }
 
 function applyInvite() {
-  const key = slug();
-  const invite = invitations[key] || invitations["brangus-sveciai"];
+  const requestedKey = slug();
+  const key = invitations[requestedKey] ? requestedKey : "brangus-sveciai";
+  const invite = invitations[key];
   document.getElementById("guestGreeting").textContent = invite.greeting;
   document.getElementById("inviteSlug").value = key;
   document.getElementById("guestNames").value = invite.names;

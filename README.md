@@ -1,15 +1,24 @@
-# Gudukai4Life V20
+# Gudukai4Life V21
 
-Bazė: V19.
+Bazė: V20.
 
-Pakeista RSVP eiga, prioritetą teikiant telefonams:
-- po submit uždaroma mobilioji klaviatūra;
-- palaukiama, kol stabilizuosis visual viewport;
-- forma pakeičiama padėkos bloku;
-- palaukiama, kol naršyklė pilnai perskaičiuos naują išdėstymą;
-- atliekamas vienas kontroliuotas scroll tik iki „AČIŪ! / Lauksime Jūsų!“ bloko;
-- po to nebevyksta joks automatinis slinkimas;
-- Spotify lieka iškart po padėka, su dar mažesniu tarpu;
-- išjungtas scroll anchoring konfliktas.
+Pridėta personalizacija per `?guest=` parametrą.
 
-Tikslas: vienodas elgesys skirtingo dydžio desktop languose, iPhone ir Android.
+Pavyzdžiai:
+- `https://vaivairmartynas.lt/?guest=aiste-tomas`
+- `https://vaivairmartynas.lt/?guest=fbc`
+- `https://vaivairmartynas.lt/?guest=mantas`
+
+Kiekviena nuoroda:
+- rodo konkretų kreipinį;
+- RSVP laukelyje įrašo kvietimo kodą ir svečių vardus;
+- apriboja svečių skaičiaus pasirinkimą pagal kvietimą;
+- kiekvienam pasirinktam svečiui sukuria atskirą vardo ir karšto patiekalo pasirinkimą;
+- FBC kvietime leidžia pasirinkti iki 6 žmonių;
+- vieno žmogaus kvietimuose leidžia tik 1 žmogų.
+
+Nežinoma arba nepateikta `guest` reikšmė saugiai rodo:
+`Brangūs svečiai,`
+
+Visos paruoštos nuorodos yra faile:
+`personalizuotos-nuorodos.txt`
