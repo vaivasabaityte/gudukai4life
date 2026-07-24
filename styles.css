@@ -1465,3 +1465,42 @@ button:hover{
     grid-template-columns:58px minmax(0,1fr) !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V11 — unified greeting icons
+   ============================================================ */
+
+.details-list .detail-icon svg{
+  stroke-width:2.05 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+.details-list .detail-icon .icon-fill{
+  fill:currentColor !important;
+  stroke:currentColor !important;
+}
+
+/* Keep all three icons optically balanced. */
+.details-list article:nth-child(1) .detail-icon{
+  width:76px !important;
+  height:76px !important;
+}
+.details-list article:nth-child(2) .detail-icon{
+  width:72px !important;
+  height:72px !important;
+}
+.details-list article:nth-child(3) .detail-icon{
+  width:72px !important;
+  height:72px !important;
+}
+
+@media(max-width:760px){
+  .details-list article:nth-child(1) .detail-icon,
+  .details-list article:nth-child(2) .detail-icon,
+  .details-list article:nth-child(3) .detail-icon{
+    width:54px !important;
+    height:54px !important;
+  }
+}

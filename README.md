@@ -1,13 +1,11 @@
-# Gudukai4Life V10
+# Gudukai4Life V11
 
-Bazė: V9.
+Bazė: V10.
 
-Pakeista tik ikonų sistema:
-- suvienodinti žiedai ir taurės;
-- taurės be jungiančios linijos;
-- naujas vokas, kuriame linijos vizualiai neina per širdelę;
-- aiškesnė gėlė;
-- tvarkingesnė meškiuko / mažųjų svečių ikona;
-- visoms ikonoms vienodas linijų storis, kampai ir proporcijos.
+Pakeista tik:
+- gėlės ir meškiuko ikonėlės į vientisesnį, vienodo stiliaus outline rinkinį;
+- suvienodinti ikonų linijų storiai ir proporcijos;
+- maisto pasirinkimo tekstas pakeistas į:
+  „Kiekvienam dalyvaujančiam svečiui pasirinkite po karštą patiekalą.“
 
-Kiti V9 elementai nekeičiami.
+Kiti V10 elementai nepakeisti.
