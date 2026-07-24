@@ -1,11 +1,14 @@
-# Gudukai4Life V11
+# Gudukai4Life V11 Final
 
-Bazė: V10.
+Bazė: vartotojos įkeltas V11 ZIP.
 
 Pakeista tik:
-- gėlės ir meškiuko ikonėlės į vientisesnį, vienodo stiliaus outline rinkinį;
-- suvienodinti ikonų linijų storiai ir proporcijos;
-- maisto pasirinkimo tekstas pakeistas į:
+- visos trys „Sveikinimų“ ikonėlės pakeistos į vieną profesionalią Lucide ikonų šeimą:
+  - mail-heart
+  - flower-2
+  - baby
+- visoms ikonoms pritaikytas identiškas dydis, linijų storis ir kampai;
+- paliktas sutartas maisto tekstas:
   „Kiekvienam dalyvaujančiam svečiui pasirinkite po karštą patiekalą.“
 
-Kiti V10 elementai nepakeisti.
+Kiti projekto elementai nepakeisti.
