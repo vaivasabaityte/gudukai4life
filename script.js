@@ -315,19 +315,9 @@ async function showSuccess() {
       spotifyAfterRsvp.hidden = true;
     }
 
-    // Wait until the new layout has painted, then intentionally move to the
-    // confirmation instead of allowing an uncontrolled browser jump.
     await nextPaint();
-    await slowScrollTo(rsvpSuccess, 700, "center");
 
-    // Give guests enough time to read the confirmation.
-    await wait(2500);
-
-    if (selectedAttendance === "Taip, dalyvausiu") {
-      await slowScrollTo(spotifyAfterRsvp, 1150, "start");
-    }
-
-    // Release the preserved height only after all automatic movement is done.
+    // Keep the confirmation visible and let the guest continue naturally.
     rsvpForm.style.minHeight = "";
   }
 });

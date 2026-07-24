@@ -1759,3 +1759,29 @@ button:hover{
     padding-top:1rem;
   }
 }
+
+
+/* V17 RSVP refinement */
+#rsvpSuccess{
+  max-width:760px;
+  margin:1.5rem auto 0;
+}
+#rsvpSuccess .success-card,
+#rsvpSuccess .success-message{
+  padding:2rem !important;
+}
+#rsvpSuccess::after{
+  content:"Tai dar ne pabaiga ↓\ASlinkite žemyn";
+  white-space:pre;
+  display:block;
+  text-align:center;
+  margin:1.25rem auto .25rem;
+  font-family:"Inter",sans-serif;
+  font-size:.95rem;
+  color:#7d7d7d;
+  line-height:1.6;
+  letter-spacing:.03em;
+}
+#spotifyAfterRsvp{
+  margin-top:2rem !important;
+}
