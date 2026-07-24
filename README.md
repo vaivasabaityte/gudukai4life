@@ -1,11 +1,14 @@
-# Gudukai4Life V15
+# Gudukai4Life V16
 
-Bazė: vartotojos pateikta V14.
+Bazė: V15.
 
-Pakeista tik:
-- po sėkmingo RSVP „AČIŪ! / Lauksime Jūsų!“ paliekama matoma 2,2 sekundės;
-- po užlaikymo į Spotify bloką slenkama lėčiau, apie 1,1 sekundės;
-- `#Gudukai4Life` pakeistas į modernesnį sans-serif šriftą;
-- hashtag rodomas didžiosiomis raidėmis, storesniu svoriu ir su subtiliu tarpu tarp raidžių.
+Pataisyta RSVP animacija kompiuteryje ir telefone:
+- prieš paslepiant formos laukus išsaugomas esamas formos aukštis;
+- dėl to ilga forma nebesusitraukia staiga ir naršyklė nebepermeta puslapio;
+- po sėkmingo pateikimo puslapis kontroliuotai nuslenka iki „AČIŪ! / Lauksime Jūsų!“;
+- patvirtinimas paliekamas matomas 2,5 sekundės;
+- tik tada lėtai, per maždaug 1,15 sekundės, nuslenkama į Spotify bloką;
+- išjungtas naršyklės scroll anchoring konfliktas;
+- patvirtinimui pridėtas subtilus fade + slide atsiradimas.
 
-V14 Netlify Forms pataisymai ir visi kiti elementai palikti nepakeisti.
+Visi kiti V15 elementai palikti nepakeisti.

@@ -239,36 +239,66 @@ applyInvite();
   });
 
 
-function slowScrollTo(element, duration = 1100) {
-  if (!element) return;
-
-  const startY = window.scrollY;
-  const targetY = element.getBoundingClientRect().top + window.scrollY;
-  const distance = targetY - startY;
-  const startTime = performance.now();
-
-  const easeInOutCubic = (progress) =>
-    progress < 0.5
-      ? 4 * progress * progress * progress
-      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-  function step(currentTime) {
-    const progress = Math.min((currentTime - startTime) / duration, 1);
-    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
-
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    }
-  }
-
-  requestAnimationFrame(step);
+function wait(milliseconds) {
+  return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
 }
 
-function showSuccess() {
+function nextPaint() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => requestAnimationFrame(resolve));
+  });
+}
+
+function slowScrollTo(element, duration = 900, block = "start") {
+  return new Promise((resolve) => {
+    if (!element) {
+      resolve();
+      return;
+    }
+
+    const rect = element.getBoundingClientRect();
+    const startY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const topOffset = block === "center"
+      ? Math.max((viewportHeight - rect.height) / 2, 24)
+      : 24;
+    const targetY = Math.max(rect.top + startY - topOffset, 0);
+    const distance = targetY - startY;
+    const startTime = performance.now();
+
+    const easeInOutCubic = (progress) =>
+      progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    function step(currentTime) {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        resolve();
+      }
+    }
+
+    requestAnimationFrame(step);
+  });
+}
+
+async function showSuccess() {
     if (!submitted || rsvpSuccess.dataset.shown === "true") return;
 
     rsvpSuccess.dataset.shown = "true";
     formStatus.textContent = "";
+
+    // Preserve the current form height before hiding its fields.
+    // This prevents the browser from jumping when the long RSVP form collapses,
+    // especially on mobile.
+    const currentFormHeight = rsvpForm.getBoundingClientRect().height;
+    rsvpForm.style.minHeight = `${currentFormHeight}px`;
+    rsvpForm.classList.add("is-submitted");
+
     rsvpSuccess.hidden = false;
 
     rsvpForm
@@ -280,14 +310,24 @@ function showSuccess() {
     if (selectedAttendance === "Taip, dalyvausiu") {
       rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
       spotifyAfterRsvp.hidden = false;
-
-      // Paliekame patvirtinimą matomą, kad svečias spėtų perskaityti.
-      setTimeout(() => {
-        slowScrollTo(spotifyAfterRsvp, 1100);
-      }, 2200);
     } else {
       rsvpSuccessTitle.textContent = "Ačiū, kad pranešėte.";
       spotifyAfterRsvp.hidden = true;
     }
+
+    // Wait until the new layout has painted, then intentionally move to the
+    // confirmation instead of allowing an uncontrolled browser jump.
+    await nextPaint();
+    await slowScrollTo(rsvpSuccess, 700, "center");
+
+    // Give guests enough time to read the confirmation.
+    await wait(2500);
+
+    if (selectedAttendance === "Taip, dalyvausiu") {
+      await slowScrollTo(spotifyAfterRsvp, 1150, "start");
+    }
+
+    // Release the preserved height only after all automatic movement is done.
+    rsvpForm.style.minHeight = "";
   }
 });

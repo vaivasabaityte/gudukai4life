@@ -1712,3 +1712,50 @@ button:hover{
     letter-spacing:.035em !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V16 — stable RSVP confirmation flow
+   ============================================================ */
+
+/* Prevent browser scroll anchoring from fighting the controlled animation. */
+#rsvp,
+#rsvpForm,
+#rsvpSuccess,
+#spotifyAfterRsvp{
+  overflow-anchor:none;
+}
+
+#rsvpForm.is-submitted{
+  transition:min-height .35s ease;
+}
+
+#rsvpSuccess{
+  scroll-margin-top:24px;
+}
+
+#spotifyAfterRsvp{
+  scroll-margin-top:24px;
+}
+
+/* The confirmation appears calmly while the form keeps its previous height. */
+#rsvpSuccess:not([hidden]){
+  animation:rsvp-confirmation-in .55s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes rsvp-confirmation-in{
+  from{
+    opacity:0;
+    transform:translateY(14px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media(max-width:760px){
+  #rsvpSuccess{
+    padding-top:1rem;
+  }
+}
