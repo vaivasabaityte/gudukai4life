@@ -361,7 +361,7 @@ async function showSuccess() {
 
     // Preserve what the guest is currently looking at while the long form
     // is replaced by the compact confirmation card.
-    preserveViewportDuringLayoutChange(rsvpSection, () => {
+    preserveViewportDuringLayoutChange(rsvpForm, () => {
       rsvpSuccess.hidden = false;
 
       rsvpForm

@@ -1,14 +1,11 @@
-# Gudukai4Life V18
+# Gudukai4Life V18.1
 
-Bazė: V17.
+Skubus V18 pataisymas.
 
-Pataisyta RSVP eiga desktop ir mobile:
-- prieš keičiant formą nuimamas fokusas nuo aktyvaus laukelio;
-- palaukiama, kol mobilioji klaviatūra ir visual viewport stabilizuosis;
-- formos susitraukimas kompensuojamas išlaikant tą pačią ekrano vietą;
-- nėra automatinio scroll į Spotify ar gyvūnų bloką;
-- padėkos blokas kompaktiškesnis;
-- sumažintas tarpas iki Spotify, kad būtų aišku, jog puslapis tęsiasi;
-- palikta subtili užuomina „Tai dar ne pabaiga ↓ / Slinkite žemyn“.
+Problema:
+- po sėkmingo RSVP JavaScript sustodavo dėl neegzistuojančio `rsvpSection` kintamojo;
+- todėl mygtukas atrodydavo neveikiantis ir patvirtinimas nepasirodydavo.
 
-Visi kiti V17 elementai nepakeisti.
+Pataisyta:
+- naudojamas realiai egzistuojantis `rsvpForm` elementas;
+- visa V18 mobile viewport stabilizavimo logika palikta nepakeista.
