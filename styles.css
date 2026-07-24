@@ -1785,3 +1785,65 @@ button:hover{
 #spotifyAfterRsvp{
   margin-top:2rem !important;
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V18 — mobile RSVP viewport stabilization
+   ============================================================ */
+
+#rsvpForm.is-submitted{
+  min-height:0 !important;
+}
+
+#rsvpSuccess{
+  max-width:680px !important;
+  margin:1rem auto 0 !important;
+}
+
+#rsvpSuccess .success-card,
+#rsvpSuccess .success-message{
+  padding:1.45rem 1.25rem !important;
+}
+
+#rsvpSuccess::after{
+  margin:.9rem auto 0 !important;
+  font-size:.9rem !important;
+  line-height:1.45 !important;
+}
+
+#spotifyAfterRsvp{
+  margin-top:1.15rem !important;
+}
+
+@media(max-width:760px){
+  #rsvp{
+    overflow-anchor:none;
+  }
+
+  #rsvpForm,
+  #rsvpSuccess,
+  #spotifyAfterRsvp{
+    overflow-anchor:none;
+  }
+
+  #rsvpSuccess{
+    width:calc(100% - 1rem) !important;
+    margin:.65rem auto 0 !important;
+  }
+
+  #rsvpSuccess .success-card,
+  #rsvpSuccess .success-message{
+    padding:1.15rem .9rem !important;
+  }
+
+  #rsvpSuccess::after{
+    content:"Tai dar ne pabaiga ↓\ASlinkite žemyn";
+    white-space:pre;
+    margin:.7rem auto 0 !important;
+    font-size:.82rem !important;
+  }
+
+  #spotifyAfterRsvp{
+    margin-top:.75rem !important;
+  }
+}

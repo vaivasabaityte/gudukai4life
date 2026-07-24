@@ -286,26 +286,70 @@ function slowScrollTo(element, duration = 900, block = "start") {
   });
 }
 
+
+function waitForViewportToSettle(timeout = 450) {
+  return new Promise((resolve) => {
+    const viewport = window.visualViewport;
+    if (!viewport) {
+      window.setTimeout(resolve, 180);
+      return;
+    }
+
+    let lastHeight = viewport.height;
+    let stableFrames = 0;
+    const startedAt = performance.now();
+
+    function check() {
+      const currentHeight = viewport.height;
+
+      if (Math.abs(currentHeight - lastHeight) < 1) {
+        stableFrames += 1;
+      } else {
+        stableFrames = 0;
+        lastHeight = currentHeight;
+      }
+
+      if (stableFrames >= 3 || performance.now() - startedAt >= timeout) {
+        resolve();
+        return;
+      }
+
+      requestAnimationFrame(check);
+    }
+
+    requestAnimationFrame(check);
+  });
+}
+
+function preserveViewportDuringLayoutChange(anchorElement, mutateLayout) {
+  const beforeTop = anchorElement?.getBoundingClientRect().top ?? 0;
+  mutateLayout();
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const afterTop = anchorElement?.getBoundingClientRect().top ?? beforeTop;
+      const delta = afterTop - beforeTop;
+
+      if (Math.abs(delta) > 1) {
+        window.scrollBy(0, delta);
+      }
+    });
+  });
+}
+
 async function showSuccess() {
     if (!submitted || rsvpSuccess.dataset.shown === "true") return;
 
     rsvpSuccess.dataset.shown = "true";
     formStatus.textContent = "";
 
-    // Preserve the current form height before hiding its fields.
-    // This prevents the browser from jumping when the long RSVP form collapses,
-    // especially on mobile.
-    const currentFormHeight = rsvpForm.getBoundingClientRect().height;
-    rsvpForm.style.minHeight = `${currentFormHeight}px`;
-    rsvpForm.classList.add("is-submitted");
+    // Close the mobile keyboard first and wait for the viewport to settle.
+    const activeElement = document.activeElement;
+    if (activeElement && typeof activeElement.blur === "function") {
+      activeElement.blur();
+    }
 
-    rsvpSuccess.hidden = false;
-
-    rsvpForm
-      .querySelectorAll("fieldset, #attendanceDetails, .submit-btn")
-      .forEach((element) => {
-        element.hidden = true;
-      });
+    await waitForViewportToSettle();
 
     if (selectedAttendance === "Taip, dalyvausiu") {
       rsvpSuccessTitle.textContent = "Lauksime Jūsų!";
@@ -315,9 +359,21 @@ async function showSuccess() {
       spotifyAfterRsvp.hidden = true;
     }
 
-    await nextPaint();
+    // Preserve what the guest is currently looking at while the long form
+    // is replaced by the compact confirmation card.
+    preserveViewportDuringLayoutChange(rsvpSection, () => {
+      rsvpSuccess.hidden = false;
 
-    // Keep the confirmation visible and let the guest continue naturally.
-    rsvpForm.style.minHeight = "";
+      rsvpForm
+        .querySelectorAll("fieldset, #attendanceDetails, .submit-btn")
+        .forEach((element) => {
+          element.hidden = true;
+        });
+
+      rsvpForm.classList.add("is-submitted");
+      rsvpForm.style.minHeight = "";
+    });
+
+    await nextPaint();
   }
 });
