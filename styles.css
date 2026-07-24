@@ -1906,3 +1906,64 @@ button:hover{
     margin-top:.5rem !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V20 — single confirmation scroll, mobile first
+   ============================================================ */
+
+#rsvpForm.is-submitted{
+  min-height:0 !important;
+}
+
+#rsvpSuccess{
+  max-width:620px !important;
+  margin:.5rem auto 0 !important;
+  scroll-margin-top:20px !important;
+}
+
+#rsvpSuccess .success-card,
+#rsvpSuccess .success-message{
+  padding:1.1rem .9rem !important;
+}
+
+#rsvpSuccess::after{
+  margin:.5rem auto 0 !important;
+  font-size:.82rem !important;
+  line-height:1.35 !important;
+}
+
+#spotifyAfterRsvp{
+  margin-top:.4rem !important;
+  scroll-margin-top:20px !important;
+}
+
+/* Avoid native scroll anchoring fighting the controlled positioning. */
+#rsvp,
+#rsvpForm,
+#rsvpSuccess,
+#spotifyAfterRsvp{
+  overflow-anchor:none !important;
+}
+
+@media(max-width:760px){
+  #rsvpSuccess{
+    width:calc(100% - .5rem) !important;
+    margin:.35rem auto 0 !important;
+    scroll-margin-top:12px !important;
+  }
+
+  #rsvpSuccess .success-card,
+  #rsvpSuccess .success-message{
+    padding:.9rem .65rem !important;
+  }
+
+  #rsvpSuccess::after{
+    margin:.45rem auto 0 !important;
+    font-size:.76rem !important;
+  }
+
+  #spotifyAfterRsvp{
+    margin-top:.3rem !important;
+  }
+}

@@ -1,13 +1,15 @@
-# Gudukai4Life V19
+# Gudukai4Life V20
 
-Bazė: V18.1.
+Bazė: V19.
 
-Pakeista RSVP eiga:
-- visiškai pašalintas automatinis `scrollTo`, `scrollBy` ir `scrollIntoView`;
-- nebenaudojama viewport kompensavimo logika;
-- po submit uždaroma mobilioji klaviatūra ir palaukiama, kol ekranas stabilizuosis;
-- formos vietoje tame pačiame bloke parodoma kompaktiška padėka;
-- Spotify blokas rodomas iškart po padėka, su mažu tarpu;
-- desktop, iPhone ir Android paliekamas natūralus vartotojo scroll.
+Pakeista RSVP eiga, prioritetą teikiant telefonams:
+- po submit uždaroma mobilioji klaviatūra;
+- palaukiama, kol stabilizuosis visual viewport;
+- forma pakeičiama padėkos bloku;
+- palaukiama, kol naršyklė pilnai perskaičiuos naują išdėstymą;
+- atliekamas vienas kontroliuotas scroll tik iki „AČIŪ! / Lauksime Jūsų!“ bloko;
+- po to nebevyksta joks automatinis slinkimas;
+- Spotify lieka iškart po padėka, su dar mažesniu tarpu;
+- išjungtas scroll anchoring konfliktas.
 
-Kiti V18.1 elementai nepakeisti.
+Tikslas: vienodas elgesys skirtingo dydžio desktop languose, iPhone ir Android.
