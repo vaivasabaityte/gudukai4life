@@ -1590,3 +1590,23 @@ button:hover{
     height:52px !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V13.1 — icon proportion correction only
+   ============================================================ */
+
+/* Make flower and baby icons optically equal to the envelope. */
+.details-list article:nth-child(2) .detail-icon,
+.details-list article:nth-child(3) .detail-icon{
+  width:82px !important;
+  height:82px !important;
+}
+
+@media(max-width:760px){
+  .details-list article:nth-child(2) .detail-icon,
+  .details-list article:nth-child(3) .detail-icon{
+    width:58px !important;
+    height:58px !important;
+  }
+}
