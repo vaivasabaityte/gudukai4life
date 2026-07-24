@@ -1,12 +1,13 @@
-# Gudukai4Life V9
+# Gudukai4Life V10
 
-Pakeista tik tai, kas buvo sutarta:
-- pašalintas rėmas aplink antrąją spalvotą nuotrauką;
-- paliktas fade tik apačioje;
-- padidinti CEREMONIJA ir VAKARINĖ DALIS;
-- sumažintas tarpas tarp įžanginio teksto ir laiko;
-- taurėms pašalinta jungiamoji linija;
-- atnaujintos voko, rožės ir meškiuko ikonėlės vienodu, ramesniu outline stiliumi;
-- kiti V8 elementai palikti nepakeisti.
+Bazė: V9.
 
-Įkelkite visus failus į GitHub repozitorijos šaknį ir pakeiskite senus.
+Pakeista tik ikonų sistema:
+- suvienodinti žiedai ir taurės;
+- taurės be jungiančios linijos;
+- naujas vokas, kuriame linijos vizualiai neina per širdelę;
+- aiškesnė gėlė;
+- tvarkingesnė meškiuko / mažųjų svečių ikona;
+- visoms ikonoms vienodas linijų storis, kampai ir proporcijos.
+
+Kiti V9 elementai nekeičiami.
