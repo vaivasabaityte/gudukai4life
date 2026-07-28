@@ -2572,3 +2572,42 @@ body.ceremony-mode .ceremony-ending{
     padding-top:.25rem !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V24.6 — final photo + balanced spacing
+   ============================================================ */
+
+/* Full/personalized invitation now uses the same B/W second photo. */
+body:not(.ceremony-mode) .editorial-photo > img{
+  filter:grayscale(100%) contrast(.98) !important;
+}
+
+/* Balanced breathing room after the second photo on desktop. */
+body.ceremony-mode .ceremony-ending{
+  padding-top:32px !important;
+}
+
+body.ceremony-mode .ceremony-ending p{
+  margin-bottom:48px !important;
+}
+
+/* Keep countdown spacing controlled and consistent. */
+body.ceremony-mode .ceremony-countdown{
+  margin-top:0 !important;
+}
+
+/* Same balanced rhythm on mobile, slightly tighter. */
+@media(max-width:760px){
+  body.ceremony-mode .ceremony-ending{
+    padding-top:28px !important;
+  }
+
+  body.ceremony-mode .ceremony-ending p{
+    margin-bottom:40px !important;
+  }
+
+  body.ceremony-mode .ceremony-countdown{
+    margin-top:0 !important;
+  }
+}

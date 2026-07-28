@@ -1,11 +1,13 @@
-# Gudukai4Life V24.5
+# Gudukai4Life V24.6
 
-Pataisyta paskutinė mobile tarpo problema po nespalvotos nuotraukos.
+Pakeitimai:
 
-Kas pakeista:
-- ceremonijos nuotraukos blokas mobile nebepriverstinai laiko 4:5 aukščio;
-- nuotrauka rodoma pagal tikrą savo aukštį;
-- fade perkeltas ant pačios ceremonijos nuotraukos;
-- pabaigos blokas prasideda iškart po fade.
-
-Desktop ir pilni vardiniai kvietimai nepakeisti.
+- Personalizuotame pilname kvietime antroji nuotrauka pakeista į nespalvotą.
+- Naudojama ta pati nespalvota nuotrauka kaip ceremonijos puslapyje.
+- Po antros nuotraukos pridėtas minimalus, subalansuotas tarpas:
+  - desktop: 32 px iki antraštės;
+  - mobile: 28 px iki antraštės.
+- Tarp teksto ir countdown:
+  - desktop: 48 px;
+  - mobile: 40 px.
+- Hero, tekstai, RSVP, personalizuotos nuorodos ir visa kita logika nepakeisti.
