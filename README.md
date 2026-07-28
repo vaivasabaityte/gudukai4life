@@ -1,17 +1,13 @@
-# Gudukai4Life V24.9
+# Gudukai4Life V25.2
 
-Bazė: paskutinė deployinta V24.6.
+Pataisymai personalizuotame pilname kvietime:
 
-Pakeitimai:
+- grąžintas normalus, aiškus datos `2026 • 08 • 21` dydis;
+- desktop data rodoma apie 2rem dydžio;
+- mobile data rodoma apie 1.7rem dydžio;
+- pašalinti susidubliavę margin/padding tarpai;
+- nustatyti vienodi optiniai tarpai:
+  - desktop: 64 px virš datos ir 64 px po datos;
+  - mobile: 40 px virš datos ir 40 px po datos.
 
-## Personalizuotas pilnas kvietimas
-- virš „ŠVENTĖS EIGA“ pridėta data:
-  `2026 • 08 • 21`
-- countdown perkeltas iš ankstesnės vietos į vietą iškart po visos „ŠVENTĖS EIGA“ sekcijos;
-- countdown dabar rodomas prieš antrą nespalvotą nuotrauką.
-
-## Ceremonijos kvietimas
-- po „KUR IR KADA“ pridėta data:
-  `2026 • 08 • 21`
-
-Daugiau nieko nekeista.
+Kiti puslapio elementai ir logika nepakeisti.

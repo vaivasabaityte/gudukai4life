@@ -2667,3 +2667,63 @@ body:not(.ceremony-mode) .event-date--full{
       margin-bottom:2.5rem !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V25.2 — corrected date size and equal spacing
+   ============================================================ */
+
+/* Restore a strong, readable date size on both desktop and mobile. */
+body:not(.ceremony-mode) .event-date--full{
+  font-size:clamp(1.9rem,2.8vw,2.35rem) !important;
+  line-height:1.2 !important;
+  letter-spacing:.40em !important;
+  margin:0 !important;
+}
+
+/*
+  Control spacing at section level so margins do not stack.
+  Target visual rhythm:
+  introduction → 64px → date → 64px → ornament/title
+*/
+body:not(.ceremony-mode) .opening{
+  padding-bottom:64px !important;
+}
+
+body:not(.ceremony-mode) .venues{
+  padding-top:0 !important;
+}
+
+body:not(.ceremony-mode) .venues .section-heading{
+  padding-top:0 !important;
+  margin-top:0 !important;
+}
+
+body:not(.ceremony-mode) .venues .event-date--full{
+  margin-bottom:64px !important;
+}
+
+/* Keep ornament/title spacing compact and proportional. */
+body:not(.ceremony-mode) .venues .section-heading .ornament{
+  margin-top:0 !important;
+}
+
+@media(max-width:768px){
+  body:not(.ceremony-mode) .event-date--full{
+    font-size:1.7rem !important;
+    letter-spacing:.30em !important;
+    margin:0 !important;
+  }
+
+  body:not(.ceremony-mode) .opening{
+    padding-bottom:40px !important;
+  }
+
+  body:not(.ceremony-mode) .venues{
+    padding-top:0 !important;
+  }
+
+  body:not(.ceremony-mode) .venues .event-date--full{
+    margin-bottom:40px !important;
+  }
+}
