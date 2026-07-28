@@ -2378,3 +2378,33 @@ body.ceremony-mode .ceremony-ending__line{
     text-wrap:balance;
   }
 }
+
+/* V24.1 spacing polish */
+body.ceremony-mode .intro-section{
+  margin-bottom:3rem !important;
+}
+body.ceremony-mode .timeline-section,
+body.ceremony-mode .where-when-section{
+  margin-top:0 !important;
+}
+@media (max-width:768px){
+  body.ceremony-mode .intro-section{
+    margin-bottom:2rem !important;
+  }
+  body.ceremony-mode .ceremony-photo{
+    position:relative;
+    margin-bottom:1.5rem !important;
+  }
+  body.ceremony-mode .ceremony-photo::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:0;
+    height:120px;
+    background:linear-gradient(to bottom, rgba(248,244,239,0) 0%, #f8f4ef 100%);
+    pointer-events:none;
+  }
+  body.ceremony-mode .ceremony-ending{
+    margin-top:1.5rem !important;
+    padding-top:0 !important;
+  }
+}
