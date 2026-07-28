@@ -2381,7 +2381,7 @@ body.ceremony-mode .ceremony-ending__line{
 
 /* V24.1 spacing polish */
 body.ceremony-mode .intro-section{
-  margin-bottom:3rem !important;
+  margin-bottom:1.2rem !important;
 }
 body.ceremony-mode .timeline-section,
 body.ceremony-mode .where-when-section{
@@ -2389,11 +2389,11 @@ body.ceremony-mode .where-when-section{
 }
 @media (max-width:768px){
   body.ceremony-mode .intro-section{
-    margin-bottom:2rem !important;
+    margin-bottom:.6rem !important;
   }
   body.ceremony-mode .ceremony-photo{
     position:relative;
-    margin-bottom:1.5rem !important;
+    margin-bottom:.25rem !important;
   }
   body.ceremony-mode .ceremony-photo::after{
     content:"";
@@ -2404,7 +2404,7 @@ body.ceremony-mode .where-when-section{
     pointer-events:none;
   }
   body.ceremony-mode .ceremony-ending{
-    margin-top:1.5rem !important;
+    margin-top:.25rem !important;
     padding-top:0 !important;
   }
 }
