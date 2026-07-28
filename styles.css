@@ -2303,3 +2303,78 @@ body.ceremony-mode .ceremony-ending__line + .ceremony-ending__line{
     text-wrap:balance;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V24 — Lithuanian heading + true full-width root hero
+   ============================================================ */
+
+/* Exact full viewport root landing on desktop and mobile. */
+.invite-locked{
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 !important;
+  overflow:hidden !important;
+}
+
+.invite-locked__hero{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  max-width:none !important;
+  min-width:100vw !important;
+  height:100vh !important;
+  min-height:100svh !important;
+  margin:0 !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  background-position:center 26% !important;
+}
+
+/* Remove any inherited page/container sizing from the cloned hero. */
+.invite-locked__hero,
+.invite-locked__hero .hero__content{
+  box-sizing:border-box !important;
+}
+
+.invite-locked__hero .hero__content{
+  width:100% !important;
+  max-width:1000px !important;
+  margin-inline:auto !important;
+}
+
+/*
+  Italiana does not contain all Lithuanian glyphs, which caused Ū/Ž
+  to fall back to a visibly different font. Playfair Display supports
+  the complete Lithuanian alphabet while retaining a thin, elegant look.
+*/
+body.ceremony-mode .ceremony-ending h2{
+  font-family:"Playfair Display","Times New Roman",serif !important;
+  font-style:normal !important;
+  font-weight:400 !important;
+  text-transform:uppercase !important;
+  letter-spacing:.075em !important;
+  font-size:clamp(1.65rem,2.85vw,2.9rem) !important;
+  line-height:1.2 !important;
+  white-space:nowrap !important;
+  font-variant-ligatures:none;
+}
+
+/* Keep the supporting copy in two deliberate lines. */
+body.ceremony-mode .ceremony-ending__line{
+  display:block !important;
+}
+
+@media(max-width:760px){
+  .invite-locked__hero{
+    width:100vw !important;
+    min-width:100vw !important;
+    background-position:58% 24% !important;
+  }
+
+  body.ceremony-mode .ceremony-ending h2{
+    font-size:clamp(1.15rem,5vw,1.75rem) !important;
+    white-space:normal !important;
+    text-wrap:balance;
+  }
+}
