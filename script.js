@@ -19,7 +19,7 @@ const invitations = {
   "goda-edvinas": { greeting: "Goda ir Edvinai,", count: 2, names: "Goda ir Edvinas" },
   "matas-austeja": { greeting: "Matai ir Austėja,", count: 2, names: "Matas ir Austėja" },
   "egidijus-inga": { greeting: "Egidijau ir Inga,", count: 2, names: "Egidijus ir Inga" },
-  "juris-beata": { greeting: "Mylimi Krikšto tėveliai Juri ir Beata,", count: 2, names: "Juris ir Beata" },
+  "juris-beata": { greeting: "Mylimi Krikšto tėveliai Jūri ir Beata,", count: 2, names: "Jūris ir Beata" },
   "brangus-sveciai": { greeting: "Brangūs svečiai,", count: 2, names: "" }
 };
 
