@@ -2611,3 +2611,46 @@ body.ceremony-mode .ceremony-countdown{
     margin-top:0 !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V24.9 — date placement + countdown move
+   ============================================================ */
+
+.event-date{
+  color:var(--burgundy);
+  font-size:clamp(1rem,1.8vw,1.35rem);
+  font-weight:500;
+  letter-spacing:.34em;
+  line-height:1.2;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.event-date--full{
+  margin-bottom:1.75rem;
+}
+
+.event-date--ceremony{
+  margin-top:1.25rem;
+}
+
+/* Full invite countdown now sits directly after ŠVENTĖS EIGA. */
+body:not(.ceremony-mode) .venues + .countdown-section{
+  margin-top:0 !important;
+}
+
+@media(max-width:760px){
+  .event-date{
+    font-size:.95rem;
+    letter-spacing:.26em;
+  }
+
+  .event-date--full{
+    margin-bottom:1.25rem;
+  }
+
+  .event-date--ceremony{
+    margin-top:.9rem;
+  }
+}
