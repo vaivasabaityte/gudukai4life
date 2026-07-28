@@ -1,17 +1,13 @@
-# Gudukai4Life V24.9
+# Gudukai4Life V25.0
 
-Bazė: paskutinė deployinta V24.6.
+Bazė: V24.9.
 
 Pakeitimai:
-
-## Personalizuotas pilnas kvietimas
-- virš „ŠVENTĖS EIGA“ pridėta data:
-  `2026 • 08 • 21`
-- countdown perkeltas iš ankstesnės vietos į vietą iškart po visos „ŠVENTĖS EIGA“ sekcijos;
-- countdown dabar rodomas prieš antrą nespalvotą nuotrauką.
-
-## Ceremonijos kvietimas
-- po „KUR IR KADA“ pridėta data:
-  `2026 • 08 • 21`
+- data `2026 • 08 • 21` padidinta abiejuose kvietimo variantuose;
+- personalizuotame pilname kvietime sumažintas tarpas tarp įžangos ir datos;
+- personalizuotame kvietime išlieka:
+  `data → ŠVENTĖS EIGA → countdown → antra nuotrauka`;
+- ceremonijos kvietime išlieka:
+  `KUR IR KADA → data → CEREMONIJA`.
 
 Daugiau nieko nekeista.
