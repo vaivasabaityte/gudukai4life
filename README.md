@@ -1,6 +1,11 @@
-# Gudukai4Life V24.4
+# Gudukai4Life V24.5
 
-Pakeitimas:
-- Pašalintas paskutinis likęs didelis tarpas mobile ceremonijos puslapyje po antros nuotraukos.
-- `ceremony-ending` neberezervuoja papildomo aukščio.
-- Tekstas prasideda iškart po fade efekto.
+Pataisyta paskutinė mobile tarpo problema po nespalvotos nuotraukos.
+
+Kas pakeista:
+- ceremonijos nuotraukos blokas mobile nebepriverstinai laiko 4:5 aukščio;
+- nuotrauka rodoma pagal tikrą savo aukštį;
+- fade perkeltas ant pačios ceremonijos nuotraukos;
+- pabaigos blokas prasideda iškart po fade.
+
+Desktop ir pilni vardiniai kvietimai nepakeisti.

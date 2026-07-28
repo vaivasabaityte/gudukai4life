@@ -2518,3 +2518,57 @@ body.ceremony-mode .ceremony-ending{
     margin-top:0 !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V24.5 — remove final mobile gap after B/W photo
+   ============================================================ */
+@media(max-width:760px){
+
+  /* Make the ceremony-only photo section follow the actual image height,
+     instead of inheriting the tall 4/5 editorial-photo aspect ratio. */
+  body.ceremony-mode .editorial-photo{
+    aspect-ratio:auto !important;
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+  }
+
+  body.ceremony-mode .ceremony-photo{
+    position:relative !important;
+    display:block !important;
+    height:auto !important;
+    min-height:0 !important;
+  }
+
+  body.ceremony-mode .ceremony-photo img{
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+    object-fit:contain !important;
+  }
+
+  /* Recreate the fade on the actual ceremony photo wrapper. */
+  body.ceremony-mode .ceremony-photo::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:18%;
+    background:linear-gradient(to bottom,rgba(251,250,247,0),var(--ivory));
+    pointer-events:none;
+  }
+
+  /* Disable the inherited fade pseudo-element on the outer editorial section. */
+  body.ceremony-mode .editorial-photo::after{
+    display:none !important;
+  }
+
+  /* Bring the ending directly under the photo fade. */
+  body.ceremony-mode .ceremony-ending{
+    margin-top:-1px !important;
+    padding-top:.25rem !important;
+  }
+}
