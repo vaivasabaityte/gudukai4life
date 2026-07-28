@@ -2408,3 +2408,83 @@ body.ceremony-mode .where-when-section{
     padding-top:0 !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V24.3 — ceremony spacing + personalized heading
+   ============================================================ */
+
+/*
+  The generic section padding was still creating most of the empty space.
+  In ceremony mode, control the opening and venue sections directly.
+*/
+body.ceremony-mode .opening{
+  padding-top:clamp(3rem,5vw,4.5rem) !important;
+  padding-bottom:1rem !important;
+}
+
+body.ceremony-mode .venues{
+  padding-top:0 !important;
+  margin-top:0 !important;
+}
+
+/* Remove extra vertical room inside the ceremony intro itself. */
+body.ceremony-mode .ceremony-intro{
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+body.ceremony-mode .ceremony-intro p:last-child{
+  margin-bottom:0 !important;
+}
+
+/* Pull the "KUR IR KADA" heading directly after the intro. */
+body.ceremony-mode .venues .section-heading{
+  margin-top:0 !important;
+  margin-bottom:2.25rem !important;
+  padding-top:1.5rem !important;
+}
+
+/*
+  After the B/W photo, the section itself had large inherited padding.
+  Keep the fade, but bring the ending content much closer.
+*/
+body.ceremony-mode .ceremony-ending{
+  margin-top:0 !important;
+  padding-top:1rem !important;
+}
+
+@media(max-width:760px){
+  body.ceremony-mode .opening{
+    padding-top:2.4rem !important;
+    padding-bottom:.35rem !important;
+  }
+
+  body.ceremony-mode .venues{
+    padding-top:0 !important;
+    margin-top:0 !important;
+  }
+
+  body.ceremony-mode .venues .section-heading{
+    padding-top:.75rem !important;
+    margin-top:0 !important;
+    margin-bottom:1.75rem !important;
+  }
+
+  /*
+    The mobile photo is tall; its fade stays untouched.
+    Remove only the blank section gap below it.
+  */
+  body.ceremony-mode .ceremony-ending{
+    margin-top:-1px !important;
+    padding-top:.35rem !important;
+  }
+
+  body.ceremony-mode .ceremony-ending > .narrow{
+    padding-top:0 !important;
+  }
+
+  body.ceremony-mode .ceremony-ending h2{
+    margin-top:0 !important;
+  }
+}

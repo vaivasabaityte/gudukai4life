@@ -1,20 +1,10 @@
-# Gudukai4Life V24
-
-Bazė: V23.2.
+# Gudukai4Life V24.3
 
 Pataisyta:
 
-## Ceremonijos puslapis
-- „JŪSŲ BUVIMAS – DIDŽIAUSIA DOVANA“ dabar naudoja
-  lietuviškas raides pilnai palaikantį `Playfair Display`.
-- Nebelieka skirtingai atrodančių `Ū`, `Ž` ir kitų lietuviškų raidžių.
-- Antraštė desktop versijoje išlieka vienoje eilutėje.
-- Tekstas po antrašte lieka sąmoningai padalytas į dvi eilutes.
-
-## Pagrindinis domenas
-- Hero priverstinai užima visą naršyklės plotį ir aukštį.
-- Nebelieka juodų šoninių kraštų ar „mobilios versijos“ efekto desktop ekrane.
-- Išlieka originali hero nuotrauka, vardai, data ir tekstas:
-  „Kvietimas pasiekiamas tik per asmeninę nuorodą“.
-
-Pilni vardiniai kvietimai, RSVP ir `/ceremonija` funkcionalumas nepakeisti.
+- Personalizuotuose pilnuose kvietimuose grąžinta antraštė „ŠVENTĖS EIGA“.
+- Ceremonijos puslapyje palikta „KUR IR KADA“.
+- Desktop ceremonijos puslapyje smarkiai sumažintas tarpas tarp įžangos ir „KUR IR KADA“.
+- Mobile ceremonijos puslapyje smarkiai sumažintas tas pats tarpas.
+- Mobile po nespalvotos nuotraukos paliktas fade, bet pašalintas didelis tuščias tarpas iki „JŪSŲ BUVIMAS – DIDŽIAUSIA DOVANA“.
+- Kitos funkcijos, tekstai, RSVP, personalizuotos nuorodos ir hero nekeisti.
