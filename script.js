@@ -111,6 +111,16 @@ function tick() {
   setUnit("hours", h, ["valanda","valandos","valandų"]);
   setUnit("minutes", m, ["minutė","minutės","minučių"]);
   setUnit("seconds", s, ["sekundė","sekundės","sekundžių"]);
+
+  const ceremonyDays = document.getElementById("ceremony-days");
+  const ceremonyHours = document.getElementById("ceremony-hours");
+  const ceremonyMinutes = document.getElementById("ceremony-minutes");
+  const ceremonySeconds = document.getElementById("ceremony-seconds");
+
+  if (ceremonyDays) ceremonyDays.textContent = d;
+  if (ceremonyHours) ceremonyHours.textContent = h;
+  if (ceremonyMinutes) ceremonyMinutes.textContent = m;
+  if (ceremonySeconds) ceremonySeconds.textContent = s;
 }
 
 function hearts(anchor) {

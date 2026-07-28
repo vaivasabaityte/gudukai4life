@@ -2023,3 +2023,79 @@ body.ceremony-mode .editorial-photo>*:not(.ceremony-photo){display:none!importan
   .ceremony-photo img{max-height:560px}
   .ceremony-ending{padding:3.5rem 1rem 4.5rem}
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V22.1 — ceremony polish
+   ============================================================ */
+
+/* Original countdown stays for full invite, moves to bottom in ceremony mode. */
+body.ceremony-mode .countdown-section:not(.ceremony-countdown){
+  display:none !important;
+}
+
+body:not(.ceremony-mode) .ceremony-countdown{
+  display:none !important;
+}
+
+body.ceremony-mode .ceremony-countdown{
+  display:block !important;
+  margin:clamp(3rem,6vw,5rem) auto 0 !important;
+  padding:0 !important;
+  background:transparent !important;
+}
+
+/* Ceremony display headings use the same elegant italic face as personal greetings. */
+body.ceremony-mode .ceremony-intro h2,
+body.ceremony-mode .ceremony-ending h2,
+body.ceremony-mode .ceremony-farewell{
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  font-style:italic !important;
+  font-weight:500 !important;
+  letter-spacing:0 !important;
+}
+
+body.ceremony-mode .ceremony-intro h2{
+  font-size:clamp(2.6rem,5.5vw,5rem) !important;
+}
+
+body.ceremony-mode .ceremony-ending h2{
+  font-size:clamp(2.5rem,5vw,4.6rem) !important;
+}
+
+body.ceremony-mode .ceremony-farewell{
+  font-size:clamp(2.2rem,4.8vw,4.2rem) !important;
+}
+
+/* Keep smiley together. */
+.no-break-smiley{
+  white-space:nowrap;
+}
+
+/* Hide the generic greetings heading/area in ceremony mode if present. */
+body.ceremony-mode .details{
+  display:none !important;
+}
+
+/* More compact ceremony ending rhythm. */
+body.ceremony-mode .ceremony-ending{
+  padding-top:clamp(3.5rem,7vw,6rem) !important;
+}
+
+@media(max-width:760px){
+  body.ceremony-mode .ceremony-countdown{
+    margin-top:2.5rem !important;
+  }
+
+  body.ceremony-mode .ceremony-intro h2{
+    font-size:clamp(2.4rem,11vw,3.7rem) !important;
+  }
+
+  body.ceremony-mode .ceremony-ending h2{
+    font-size:clamp(2.2rem,10vw,3.4rem) !important;
+  }
+
+  body.ceremony-mode .ceremony-farewell{
+    font-size:clamp(2rem,9vw,3rem) !important;
+  }
+}
