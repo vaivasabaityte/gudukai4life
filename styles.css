@@ -2656,59 +2656,14 @@ body:not(.ceremony-mode) .venues + .countdown-section{
 }
 
 
-/* ============================================================
-   GUDUKAI4LIFE V25.0 — larger dates + tighter full-invite gap
-   ============================================================ */
-
-.event-date{
-  color:var(--burgundy) !important;
-  font-size:clamp(1.55rem,2.8vw,2.2rem) !important;
-  font-weight:600 !important;
-  letter-spacing:.42em !important;
-  line-height:1.2 !important;
-  text-align:center !important;
-  text-transform:uppercase !important;
-}
-
-/* Full personalized invite: reduce the large gap before the date. */
-body:not(.ceremony-mode) .opening{
-  padding-bottom:clamp(2.25rem,4vw,3.5rem) !important;
-}
-
-body:not(.ceremony-mode) .venues{
-  padding-top:clamp(2rem,3vw,3rem) !important;
-}
-
+/* V25.1 - balanced spacing around date in full invitation */
 body:not(.ceremony-mode) .event-date--full{
-  margin-top:0 !important;
-  margin-bottom:1.15rem !important;
+    margin-top:4rem !important;
+    margin-bottom:4rem !important;
 }
-
-/* Ceremony date remains directly below KUR IR KADA. */
-body.ceremony-mode .event-date--ceremony{
-  margin-top:1rem !important;
-  margin-bottom:0 !important;
-}
-
-@media(max-width:760px){
-  .event-date{
-    font-size:1.35rem !important;
-    letter-spacing:.30em !important;
-  }
-
-  body:not(.ceremony-mode) .opening{
-    padding-bottom:1.6rem !important;
-  }
-
-  body:not(.ceremony-mode) .venues{
-    padding-top:1.4rem !important;
-  }
-
+@media (max-width:768px){
   body:not(.ceremony-mode) .event-date--full{
-    margin-bottom:.9rem !important;
-  }
-
-  body.ceremony-mode .event-date--ceremony{
-    margin-top:.8rem !important;
+      margin-top:2.5rem !important;
+      margin-bottom:2.5rem !important;
   }
 }
