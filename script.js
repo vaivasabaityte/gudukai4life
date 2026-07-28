@@ -141,13 +141,24 @@ function hearts(anchor) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const pageParams = new URLSearchParams(window.location.search);
-  const ceremonyMode = pageParams.get("mode") === "ceremony";
+  const guestCode = pageParams.get("guest");
+  const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  const ceremonyMode =
+    normalizedPath === "/ceremonija" ||
+    pageParams.get("mode") === "ceremony";
+  const lockedMode = !ceremonyMode && !guestCode;
 
   if (ceremonyMode) {
     document.body.classList.add("ceremony-mode");
     document.querySelectorAll(".ceremony-only").forEach((element) => {
       element.hidden = false;
     });
+  }
+
+  if (lockedMode) {
+    document.body.classList.add("invite-locked-mode");
+    const lockedScreen = document.getElementById("inviteLocked");
+    if (lockedScreen) lockedScreen.hidden = false;
   }
 
   const loader = document.getElementById("loader");
@@ -167,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 if (ceremonyMode) {
     const greeting = document.getElementById("guestGreeting");
     if (greeting) greeting.textContent = "Mieli bičiuliai,";
-  } else {
+  } else if (!lockedMode) {
     applyInvite();
   }
   tick();
@@ -178,6 +189,8 @@ if (ceremonyMode) {
   }
 
   openInvitation?.addEventListener("click", () => {
+    if (lockedMode) return;
+
     if (musicModal) {
       musicModal.hidden = false;
       requestAnimationFrame(() => musicModal.classList.add("is-open"));

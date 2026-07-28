@@ -2099,3 +2099,82 @@ body.ceremony-mode .ceremony-ending{
     font-size:clamp(2rem,9vw,3rem) !important;
   }
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V23 — protected root + /ceremonija
+   ============================================================ */
+
+.invite-locked{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:grid;
+  place-items:center;
+  padding:1.25rem;
+  background:var(--ivory,#f6f0e8);
+}
+
+.invite-locked[hidden]{
+  display:none !important;
+}
+
+.invite-locked__card{
+  width:min(680px,100%);
+  text-align:center;
+  padding:clamp(2rem,6vw,4.5rem);
+  border:1px solid rgba(95,24,46,.18);
+  background:rgba(255,255,255,.45);
+  backdrop-filter:blur(8px);
+}
+
+.invite-locked__monogram{
+  margin-bottom:1.25rem;
+  font-family:"Italiana",serif;
+  font-size:clamp(2.5rem,8vw,5rem);
+  color:var(--burgundy,#681b36);
+}
+
+.invite-locked__card h1{
+  margin:0 0 1rem;
+  font-family:"Cormorant Garamond","Times New Roman",serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:clamp(2rem,5vw,3.6rem);
+  line-height:1.12;
+  color:var(--burgundy,#681b36);
+}
+
+.invite-locked__card p{
+  margin:0;
+  font-size:1rem;
+  line-height:1.6;
+}
+
+body.invite-locked-mode > *:not(#inviteLocked){
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+body.invite-locked-mode{
+  overflow:hidden !important;
+}
+
+
+body.ceremony-mode .ceremony-ending h2{
+  font-family:"Italiana",serif !important;
+  font-style:normal !important;
+  font-weight:400 !important;
+  text-transform:uppercase !important;
+  letter-spacing:.02em !important;
+  font-size:clamp(1.65rem,3.2vw,3rem) !important;
+  white-space:nowrap;
+}
+
+@media(max-width:760px){
+  body.ceremony-mode .ceremony-ending h2{
+    font-size:clamp(1.25rem,5.8vw,2rem) !important;
+    white-space:normal;
+    text-wrap:balance;
+  }
+}
