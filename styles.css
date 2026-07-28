@@ -2219,3 +2219,87 @@ body.ceremony-mode .ceremony-ending h2{
 .invite-locked__card p{
   display:none !important;
 }
+
+
+/* ============================================================
+   GUDUKAI4LIFE V23.2 — hero landing + ceremony typography fix
+   ============================================================ */
+
+/* Root landing uses the real hero section, not an error-style card. */
+.invite-locked{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:block !important;
+  padding:0 !important;
+  background:#000 !important;
+}
+
+.invite-locked[hidden]{
+  display:none !important;
+}
+
+.invite-locked__hero{
+  min-height:100vh !important;
+  height:100vh !important;
+}
+
+.invite-locked__hero #openInvitation{
+  display:none !important;
+}
+
+.invite-locked__message{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  max-width:min(90vw,560px);
+  margin-top:1.8rem;
+  padding:1rem 1.5rem;
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:999px;
+  color:#fff;
+  font-size:clamp(.95rem,1.5vw,1.15rem);
+  line-height:1.35;
+  text-align:center;
+  background:rgba(0,0,0,.22);
+  backdrop-filter:blur(8px);
+}
+
+/* Ceremony ending heading matches CEREMONIJA exactly. */
+body.ceremony-mode .ceremony-ending h2{
+  font-family:"Italiana",serif !important;
+  font-style:normal !important;
+  font-weight:400 !important;
+  text-transform:uppercase !important;
+  letter-spacing:.08em !important;
+  font-size:clamp(1.75rem,3vw,3rem) !important;
+  line-height:1.2 !important;
+  white-space:nowrap !important;
+}
+
+/* Force the supporting message into two intentional lines. */
+body.ceremony-mode .ceremony-ending p{
+  max-width:980px !important;
+}
+
+body.ceremony-mode .ceremony-ending__line{
+  display:block;
+}
+
+body.ceremony-mode .ceremony-ending__line + .ceremony-ending__line{
+  margin-top:.35rem;
+}
+
+@media(max-width:760px){
+  .invite-locked__message{
+    max-width:84vw;
+    padding:.9rem 1.2rem;
+    font-size:.92rem;
+  }
+
+  body.ceremony-mode .ceremony-ending h2{
+    font-size:clamp(1.15rem,5.2vw,1.8rem) !important;
+    white-space:normal !important;
+    text-wrap:balance;
+  }
+}
