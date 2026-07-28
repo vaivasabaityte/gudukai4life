@@ -1,10 +1,6 @@
-# Gudukai4Life V24.3
+# Gudukai4Life V24.4
 
-Pataisyta:
-
-- Personalizuotuose pilnuose kvietimuose grąžinta antraštė „ŠVENTĖS EIGA“.
-- Ceremonijos puslapyje palikta „KUR IR KADA“.
-- Desktop ceremonijos puslapyje smarkiai sumažintas tarpas tarp įžangos ir „KUR IR KADA“.
-- Mobile ceremonijos puslapyje smarkiai sumažintas tas pats tarpas.
-- Mobile po nespalvotos nuotraukos paliktas fade, bet pašalintas didelis tuščias tarpas iki „JŪSŲ BUVIMAS – DIDŽIAUSIA DOVANA“.
-- Kitos funkcijos, tekstai, RSVP, personalizuotos nuorodos ir hero nekeisti.
+Pakeitimas:
+- Pašalintas paskutinis likęs didelis tarpas mobile ceremonijos puslapyje po antros nuotraukos.
+- `ceremony-ending` neberezervuoja papildomo aukščio.
+- Tekstas prasideda iškart po fade efekto.

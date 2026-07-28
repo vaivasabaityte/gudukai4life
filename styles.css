@@ -2488,3 +2488,33 @@ body.ceremony-mode .ceremony-ending{
     margin-top:0 !important;
   }
 }
+
+
+/* ===========================
+   V24.4 – Final mobile spacing
+   =========================== */
+@media (max-width:760px){
+
+  body.ceremony-mode .ceremony-ending{
+    min-height:auto !important;
+    height:auto !important;
+    padding-top:0 !important;
+    margin-top:0 !important;
+    display:flex;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+  }
+
+  body.ceremony-mode .ceremony-ending > *,
+  body.ceremony-mode .ceremony-ending .container,
+  body.ceremony-mode .ceremony-ending .content,
+  body.ceremony-mode .ceremony-ending .inner,
+  body.ceremony-mode .ceremony-ending .narrow{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+  body.ceremony-mode .ceremony-ending h2{
+    margin-top:0 !important;
+  }
+}
