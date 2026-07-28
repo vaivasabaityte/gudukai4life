@@ -1,24 +1,19 @@
-# Gudukai4Life V21
+# Gudukai4Life V22
 
-Bazė: V20.
+Pilna versija lieka kaip dabar:
+https://vaivairmartynas.lt/
 
-Pridėta personalizacija per `?guest=` parametrą.
+Ceremonijos versija:
+https://vaivairmartynas.lt/?mode=ceremony
 
-Pavyzdžiai:
-- `https://vaivairmartynas.lt/?guest=aiste-tomas`
-- `https://vaivairmartynas.lt/?guest=fbc`
-- `https://vaivairmartynas.lt/?guest=mantas`
+Ceremonijos režime palikta:
+- Hero
+- pradinis muzikos pasirinkimas
+- laikmatis
+- bendra įžanga
+- ceremonijos informacija ir Google Maps
+- nespalvota nuotrauka
+- padėkos blokas
+- „Iki pasimatymo rugpjūčio 21-ąją! ❤️“
 
-Kiekviena nuoroda:
-- rodo konkretų kreipinį;
-- RSVP laukelyje įrašo kvietimo kodą ir svečių vardus;
-- apriboja svečių skaičiaus pasirinkimą pagal kvietimą;
-- kiekvienam pasirinktam svečiui sukuria atskirą vardo ir karšto patiekalo pasirinkimą;
-- FBC kvietime leidžia pasirinkti iki 6 žmonių;
-- vieno žmogaus kvietimuose leidžia tik 1 žmogų.
-
-Nežinoma arba nepateikta `guest` reikšmė saugiai rodo:
-`Brangūs svečiai,`
-
-Visos paruoštos nuorodos yra faile:
-`personalizuotos-nuorodos.txt`
+Pilna svečių versija ir personalizuotos nuorodos nepakeistos.

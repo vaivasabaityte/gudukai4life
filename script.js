@@ -130,6 +130,16 @@ function hearts(anchor) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const pageParams = new URLSearchParams(window.location.search);
+  const ceremonyMode = pageParams.get("mode") === "ceremony";
+
+  if (ceremonyMode) {
+    document.body.classList.add("ceremony-mode");
+    document.querySelectorAll(".ceremony-only").forEach((element) => {
+      element.hidden = false;
+    });
+  }
+
   const loader = document.getElementById("loader");
   const invitation = document.getElementById("invitation");
   const openInvitation = document.getElementById("openInvitation");
@@ -144,7 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const rsvpSuccess = document.getElementById("rsvpSuccess");
   const rsvpSuccessTitle = document.getElementById("rsvpSuccessTitle");
   const spotifyAfterRsvp = document.getElementById("spotifyAfterRsvp");
-applyInvite();
+if (ceremonyMode) {
+    const greeting = document.getElementById("guestGreeting");
+    if (greeting) greeting.textContent = "Mieli bičiuliai,";
+  } else {
+    applyInvite();
+  }
   tick();
   setInterval(tick, 1000);
 
